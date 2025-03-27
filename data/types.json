@@ -1,0 +1,551 @@
+{
+"achievement": ["int","int","int","uint","string","string","uint","uint","uint","uint","uint","string","uint","uint","int"]
+,
+"achievement_category": ["int","int","string","int"]
+,
+"achievement_criteria": ["int","int","int","int","int","int","int","int","int","int","string","int","int","int","int","int","int","int","int","int","int","int","int"]
+,
+"animationdata": ["int","string","int","int","int","int"]
+,
+"animkit": ["int","int","int"]
+,
+"animkitboneset": ["int","string","int","int","int","int"]
+,
+"animkitbonesetalias": ["int","int","int"]
+,
+"animkitconfig": ["int","int"]
+,
+"animkitconfigboneset": ["int","int","int","int"]
+,
+"animkitpriority": ["int","int"]
+,
+"animkitsegment": ["int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int"]
+,
+"animreplacement": ["int","int","int","int"]
+,
+"animreplacementset": ["int","int"]
+,
+"areaassignment": ["int","int","int","int","int"]
+,
+"areagroup": ["int","int","int","int","int","int","int","int"]
+,
+"areapoi": ["int","int","int","int","int","int","int","int","int","int","int","int","float","float","int","int","int","string","string","int","int","int","int"]
+,
+"areatable": ["int","int","int","int","int","int","int","int","int","string","int","int","int","string","int","int","int","int","int","float","float","int","int","int","int","int","int","int","int","int","int"]
+,
+"areatrigger": ["int","int","float","float","float","int","int","int","float","float","float","float","float","int","int","int","int"]
+,
+"areatriggeractionset": ["int","int"]
+,
+"areatriggerbox": ["int","float","float","float"]
+,
+"areatriggersphere": ["int","float"]
+,
+"armorlocation": ["int","int","int","int","int","int"]
+,
+"attackanimkits": ["int","int","int","int","int"]
+,
+"attackanimtypes": ["int","string"]
+,
+"auctionhouse": ["int","int","int","int","string"]
+,
+"bankbagslotprices": ["int","int"]
+,
+"bannedaddons": ["int","uint","uint","int","int"]
+,
+"barbershopstyle": ["int","int","string","int","float","int","string","int"]
+,
+"battlemasterlist": ["int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","string","int","int","int","int","int","int","int","int","int","string"]
+,
+"battlepetabilityeffect": ["int","uint","uint","uint","uint","uint","uint","uint","uint","uint","uint","uint"]
+,
+"battlepetabilityturn": ["int","uint","uint","uint","uint","uint"]
+,
+"battlepetbreedquality": ["int","uint","uint","uint"]
+,
+"battlepeteffectproperties": ["int","uint","uint","uint","uint","uint","uint","uint","uint","uint","uint","uint","uint","uint"]
+,
+"battlepetvisual": ["int","uint","uint","uint","uint","uint","uint","uint"]
+,
+"broadcasttext": ["int","uint","string","string","uint","uint","uint","uint","uint","uint","uint","uint","uint"]
+,
+"cameramode": ["int","string","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int"]
+,
+"camerashakes": ["int","int","int","int","float","int","int","int","int"]
+,
+"castableraidbuffs": ["int","int","int"]
+,
+"cfg_categories": ["int","int","int","int","string","string"]
+,
+"cfg_configs": ["int","int","int","int","int","int"]
+,
+"cfg_regions": ["int","string","int","int"]
+,
+"characterfacialhairstyles": ["int","int","int","int","int","int","int","int","int"]
+,
+"characterloadout": ["int","int","int","int"]
+,
+"characterloadoutitem": ["int","int","int","int","int"]
+,
+"charbaseinfo": ["int","byte","byte","byte"]
+,
+"charcomponenttexturelayouts": ["int","int","int"]
+,
+"charcomponenttexturesections": ["int","int","int","int","int","int","int"]
+,
+"charhairgeosets": ["int","int","int","int","int","int","int","int","int"]
+,
+"charsections": ["int","int","int","int","string","int","int","int"]
+,
+"chartitles": ["int","int","string","string","int","int"]
+,
+"chatchannels": ["int","int","int","string","string"]
+,
+"chatprofanity": ["int","string","int"]
+,
+"chrclasses": ["int","int","string","string","int","int","string","int","int","int","int","int","int","int","int","int","int","int"]
+,
+"chrclassesxpowertypes": ["int","int","int"]
+,
+"chrraces": ["int","int","int","int","int","int","string","int","int","int","int","string","int","int","string","int","int","string","string","string","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int"]
+,
+"chrspecialization": ["int","string","int","int","int","int","int","int","int","int","int","string","string","string"]
+,
+"cinematiccamera": ["int","string","int","int","int","int","int"]
+,
+"cinematicsequences": ["int","int","int","int","int","int","int","int","int","int"]
+,
+"combatcondition": ["int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int"]
+,
+"creature": ["int","uint","uint","uint","uint","uint","uint","uint","uint","uint","uint","uint","uint","uint","uint","uint","uint","uint"]
+,
+"creaturecache": ["int","int","int","int","byte","byte","byte","string","int","int","int","int","int","int","int","int","int","int","int","float","float","int","int","byte","string"]
+,
+"creaturedifficulty": ["int","uint","uint","uint","uint","uint","uint","uint","uint","uint","uint"]
+,
+"creaturedisplayinfo": ["int","int","int","int","float","int","string","string","int","int","int","int","int","int","int","int","int","int"]
+,
+"creaturedisplayinfoextra": ["int","int","int","int","int","int","int","int","int","int"]
+,
+"creaturefamily": ["int","int","string","int","int","int","int","int","int","int","string","string"]
+,
+"creatureimmunities": ["int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int"]
+,
+"creaturemodeldata": ["int","int","string","int","float","int","int","float","float","float","int","int","int","int","float","float","float","float","float","float","float","float","float","float","float","float","float","float","float","float","float","float","int","float"]
+,
+"creaturemovementinfo": ["int","int"]
+,
+"creaturesounddata": ["int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int"]
+,
+"creaturespelldata": ["int","int","int","int","int","int","int","int","int"]
+,
+"creaturetype": ["int","string","string"]
+,
+"criteria": ["int","int","int","int","int","int","int","int","int","int","int","int"]
+,
+"criteriatree": ["int","int","int","int","int","int","int","string"]
+,
+"criteriatreexeffect": ["int","int","int"]
+,
+"currencycategory": ["int","int","string"]
+,
+"currencytypes": ["int","int","string","string","string","int","int","int","int","int","int","string"]
+,
+"deaththudlookups": ["int","int","int","int","int"]
+,
+"destructiblemodeldata": ["int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int"]
+,
+"difficulty": ["int","int","int","int","int","int","int","int","int","int","int","string"]
+,
+"dungeonencounter": ["int","int","int","int","int","string","int","int","int"]
+,
+"dungeonmap": ["int","int","int","float","float","float","float","int","int"]
+,
+"dungeonmapchunk": ["int","int","int","int","float","int"]
+,
+"durabilitycosts": ["int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int"]
+,
+"durabilityquality": ["int","int"]
+,
+"emotes": ["uint","string","uint","uint","uint","uint","uint","uint"]
+,
+"emotestext": ["int","string"]
+,
+"emotestextdata": ["uint","string"]
+,
+"emotestextsound": ["int","int","int","int","int"]
+,
+"environmentaldamage": ["int","int","int"]
+,
+"exhaustion": ["int","int","float","int","int","string","int","string"]
+,
+"faction": ["int","int","uint","uint","uint","uint","uint","uint","uint","uint","int","int","int","int","uint","uint","uint","uint","uint","float","float","uint","uint","string","string","int"]
+,
+"factiongroup": ["int","int","string","string"]
+,
+"factiontemplate": ["int","int","int","int","int","int","int","int","int","int","int","int","int","int"]
+,
+"filedata": ["int","string","string"]
+,
+"footprinttextures": ["int","string"]
+,
+"footstepterrainlookup": ["int","int","int","int","int"]
+,
+"friendshiprepreaction": ["int","int","int","string"]
+,
+"friendshipreputation": ["int","int","int","string"]
+,
+"gameobjectartkit": ["int","int","int","int","string","string","string","string"]
+,
+"gameobjectdiffanimmap": ["int","int","int","int","int"]
+,
+"gameobjectdisplayinfo": ["uint","string","uint","float","float","float","float","float","float","int"]
+,
+"gameobjects": ["int","int","int","float","float","float","float","float","float","float","int","int","int","int","int","int","string"]
+,
+"gametables": ["int","string","int","int"]
+,
+"gametips": ["int","string","int","int"]
+,
+"garrspecialization": ["int","int","int","int","int","float","int","string","string"]
+,
+"gemproperties": ["int","int","int","int","int","int"]
+,
+"gluescreenemote": ["int","int","int","int","int","int","int","int"]
+,
+"glyphproperties": ["int","int","int","int"]
+,
+"glyphslot": ["int","int","int"]
+,
+"gmsurveyanswers": ["int","int","int","string"]
+,
+"gmsurveycurrentsurvey": ["int","int"]
+,
+"gmsurveyquestions": ["int","string"]
+,
+"gmsurveysurveys": ["int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int"]
+,
+"gmticketcategory": ["int","string"]
+,
+"groundeffectdoodad": ["int","string","int","float"]
+,
+"groundeffecttexture": ["int","int","int","int","int"]
+,
+"groupfinderactivity": ["int","int","int","int","int","int","int","string","string"]
+,
+"groupfinderactivitygrp": ["int","string"]
+,
+"groupfindercategory": ["int","string"]
+,
+"gtbarbershopcostbase": ["int","int"]
+,
+"gtbattlepettypedamagemod": ["int","float"]
+,
+"gtbattlepetxp": ["int","float"]
+,
+"gtchancetomeleecrit": ["int","float"]
+,
+"gtchancetomeleecritbase": ["int","int"]
+,
+"gtchancetospellcrit": ["int","float"]
+,
+"gtchancetospellcritbase": ["int","int"]
+,
+"gtcombatratings": ["int","int"]
+,
+"gtitemsocketcostperlevel": ["int","int"]
+,
+"gtnpcmanacostscaler": ["int","int"]
+,
+"gtoctbasehpbyclass": ["int","int"]
+,
+"gtoctbasempbyclass": ["int","int"]
+,
+"gtoctclasscombatratingscalar": ["int","int"]
+,
+"gtocthpperstamina": ["int","float"]
+,
+"gtregenmpperspt": ["int","int"]
+,
+"gtresiliencedr": ["int","float"]
+,
+"gtspellscaling": ["int","int"]
+,
+"guildperkspells": ["int","int","int"]
+,
+"helmetanimscaling": ["int","int","int","int"]
+,
+"helmetgeosetvisdata": ["int","int","int","int","int","int","int","int"]
+,
+"holidaydescriptions": ["int","string"]
+,
+"holidaynames": ["int","string"]
+,
+"holidays": ["int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","string","int","int","int","int","int","int","int","int","int","int","int","int","string","int","int","string"]
+,
+"importpricearmor": ["int","int","int","int","int"]
+,
+"importpricequality": ["int","int"]
+,
+"importpriceshield": ["int","float"]
+,
+"importpriceweapon": ["int","float"]
+,
+"item": ["int","uint","uint","int","int","uint","uint","uint"]
+,
+"itemarmorquality": ["int","float","float","float","float","float","float","float","int"]
+,
+"itemarmorshield": ["int","int","float","float","float","float","float","float","float"]
+,
+"itemarmortotal": ["int","int","float","float","float","float"]
+,
+"itembagfamily": ["int","string"]
+,
+"itembonus": ["int","int","int","int","int","int"]
+,
+"itemclass": ["int","int","float","string"]
+,
+"itemdamageammo": ["int","float","float","float","float","int","int","int","int"]
+,
+"itemdamageonehand": ["int","int","int","int","int","int","int","int","int"]
+,
+"itemdamageonehandcaster": ["int","int","int","int","int","int","int","int","int"]
+,
+"itemdamageranged": ["int","int","int","int","int","int","int","int","int"]
+,
+"itemdamagethrown": ["int","int","int","int","int","int","int","int","int"]
+,
+"itemdamagetwohand": ["int","int","int","int","int","int","int","int","int"]
+,
+"itemdamagetwohandcaster": ["int","int","int","int","int","int","int","int","int"]
+,
+"itemdamagewand": ["int","int","int","int","int","int","int","int","int"]
+,
+"itemdisenchantloot": ["int","int","int","int","int","int","int"]
+,
+"itemdisplayinfo": ["uint","string","string","string","int","int","int","int","int","string","int","int"]
+,
+"itemeffect": ["int","int","int","int","int","int","int","int","int"]
+,
+"itemextendedcost": ["int","uint","uint","uint","uint","uint","uint","uint","uint","uint","uint","uint","uint","uint","uint"]
+,
+"itemgroupsounds": ["int","int","int","int","int"]
+,
+"itemlimitcategory": ["int","string","int","string"]
+,
+"itemnamedescription": ["int","string","int"]
+,
+"itempetfood": ["int","string"]
+,
+"itempricebase": ["int","int","int","int"]
+,
+"itempurchasegroup": ["int","int","int","int","int","int","int","int","int","string"]
+,
+"itemrandomproperties": ["int","string","int","int","int","int","int","string"]
+,
+"itemrandomsuffix": ["int","string","string","int","int","int","int","int","int","int","int","int","int"]
+,
+"itemreforge": ["int","int","float","int","float"]
+,
+"itemset": ["int","string","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int"]
+,
+"item-sparse": ["int","uint","uint","uint","uint","float","float","uint","uint","uint","uint","int","int","uint","int","uint","uint","uint","uint","uint","uint","uint","uint","uint","uint","int","uint","int","int","uint","uint","uint","float","int","int","int","int","int","int","uint","string","string","string","string","string","uint","uint","uint","uint","uint","int","uint","uint","uint","uint","uint","uint","uint","uint","uint","uint","int","uint","float","uint","uint","uint","float","int","int"]
+,
+"itemspec": ["int","int","int","int","int","int","int"]
+,
+"itemspecoverride": ["int","int","int"]
+,
+"itemsubclass": ["int","int","int","int","int","int","int","int","int","int","int","string","string"]
+,
+"itemsubclassmask": ["int","int","int","string"]
+,
+"itemtomountspell": ["int","uint"]
+,
+"itemupgradepath": ["int"]
+,
+"itemvisualeffects": ["int","string"]
+,
+"journalencounter": ["int","int","int","float","float","int","int","int","int","string","string","int"]
+,
+"journalencounterxdifficulty": ["int","int","int"]
+,
+"journalinstance": ["int","int","int","int","int","int","string","string"]
+,
+"journaltier": ["int","int","string"]
+,
+"journaltierxinstance": ["int","int","int"]
+,
+"lfgdungeongroup": ["int","string","int","int","int"]
+,
+"lfgdungeons": ["int","string","int","int","int","int","int","int","int","int","int","int","string","int","int","int","string","int","int","int","int","int","int","int","int","int","int","int","int"]
+,
+"lfgdungeonsgroupingmap": ["int","int","int","int"]
+,
+"lightdata": ["int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","float","float","float"]
+,
+"lightskybox": ["int","string","int"]
+,
+"liquidtype": ["int","string","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int"]
+,
+"loadingscreens": ["int","string","string","int"]
+,
+"manifestinterfaceactionicon": ["int"]
+,
+"manifestinterfacedata": ["int","string","string"]
+,
+"manifestinterfaceitemicon": ["int"]
+,
+"manifestinterfacetocdata": ["int","string"]
+,
+"map": ["int","string","uint","uint","uint","string","uint","string","string","uint","float","int","float","float","uint","uint","uint","uint","uint"]
+,
+"mapchallengemode": ["int","int","int","int","int","int","int","int","int","int"]
+,
+"mapdifficulty": ["int","int","int","string","int","int","int"]
+,
+"modelnametomanifest": ["int","int","int"]
+,
+"mount": ["int","int","int","int","string","string","string","int","int"]
+,
+"movie": ["int","int","int","int","int"]
+,
+"moviefiledata": ["int","int"]
+,
+"movieoverlays": ["int","int","int","int","int"]
+,
+"objecteffect": ["int","string","int","int","int","int","int","int","int","int","int","int"]
+,
+"paperdollitemframe": ["int","string","string","int"]
+,
+"questcache": ["int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","float","int","int","int","int","int","int","int","int","int","int","int","int","int","int"]
+,
+"questline": ["int","string"]
+,
+"questpackageitem": ["int","uint","uint","uint","uint"]
+,
+"questpoiblob": ["int","int","int","int"]
+,
+"questpoipoint": ["int","int","int","int"]
+,
+"researchbranch": ["int","string","int","int","string","int"]
+,
+"researchfield": ["int","string","int"]
+,
+"researchproject": ["int","string","string","int","int","int","int","string","int"]
+,
+"researchsite": ["int","int","int","string","int"]
+,
+"rulesetitemupgrade": ["int","uint","uint","uint"]
+,
+"rulesetraidlootupgrade": ["int","uint","uint","uint","uint"]
+,
+"scalingstatdistribution": ["int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int"]
+,
+"scalingstatvalues": ["int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int"]
+,
+"scenario": ["int","string","int"]
+,
+"scenarioevententry": ["int","int","int"]
+,
+"scenariostep": ["int","int","int","int","string","string","int"]
+,
+"scenescript": ["int","string","string","uint","uint"]
+,
+"scenescriptpackage": ["int","string"]
+,
+"scenescriptpackagemember": ["int","uint","uint","uint","uint"]
+,
+"soundentries": ["int","int","string","int","int","float","int","float","float","int","int","float","float","float","float","float","int"]
+,
+"spell": ["int","string","string","string","string","int","int","int","float","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int"]
+,
+"spellauraoptions": ["int","int","int","int","int","int","int"]
+,
+"spellaurarestrictions": ["int","int","int","int","int","int","int","int","int","int","int"]
+,
+"spellcategories": ["int","int","int","int","int","int","int","int","int","int"]
+,
+"spellclassoptions": ["int","uint","uint","uint","uint","uint","int"]
+,
+"spellcooldowns": ["int","int","int","int","int","int"]
+,
+"spelldescriptionvariables": ["int","string"]
+,
+"spelleffect": ["int","uint","uint","float","uint","uint","int","float","float","uint","uint","uint","uint","int","int","float","uint","uint","float","uint","uint","uint","uint","int","uint","uint","uint","uint","uint","uint"]
+,
+"spellequippeditems": ["int","int","int","int","int","int"]
+,
+"spellinterrupts": ["int","int","int","int","int","int","int","int"]
+,
+"spelllearnspell_internal": ["int","int","int","int"]
+,
+"spelllevels": ["int","int","int","int","int","int"]
+,
+"spelllevels_internal": ["int","int","int","int","int","int"]
+,
+"spellmisc": ["int","int","int","uint","uint","uint","uint","uint","uint","uint","uint","uint","uint","uint","uint","uint","uint","int","int","int","float","int","int","int","int","int"]
+,
+"spellmissile": ["int","int","float","float","float","float","float","float","float","float","float","float","float","float","float"]
+,
+"spellpower": ["int","int","int","int","int","int","int","int","int","float","float","int","float"]
+,
+"spellrunecost": ["int","int","int","int","int","int"]
+,
+"spellscaling": ["int","int","int","int","int","float","int","int","int"]
+,
+"spellshapeshift": ["int","int","int","int","int","int"]
+,
+"spellshapeshiftform": ["int","int","string","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int"]
+,
+"spelltargetrestrictions": ["int","int","int","float","float","int","int","int","int"]
+,
+"spelltotems": ["int","int","int","int","int"]
+,
+"spellvisual": ["int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","float","float","int","int","int","int","int"]
+,
+"spellvisualeffectname": ["int","string","float","float","float","float","int","float","int"]
+,
+"spellvisualkit": ["int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","int","float","float","float","float","int"]
+,
+"spellvisualkitmodelattach": ["int","int","int","int","float","float","float","float","int","int","int","int","int"]
+,
+"taxinodes": ["int","int","float","string","int","int","int","float"]
+,
+"taxipath": ["int","int","int","int"]
+,
+"taxipathnode": ["int","int","int","int","float","int","int","int","int"]
+,
+"uitextureatlasmember": ["int","string","int","int","int","int","int","int"]
+,
+"uitexturekit": ["int","string"]
+,
+"vehicle": ["uint","uint","string","float","float","float","float","uint","float","float","float","float","float","float","float","float","float","float","float","float","float","float","string","string","string","float","uint","float","uint","uint","uint","uint"]
+,
+"vehicleseat": ["uint","uint","int","float","float","float","float","float","float","float","float","float","float","int","int","int","int","int","int","float","float","float","float","float","float","float","int","int","int","float","float","float","int","int","int","int","int","int","int","float","float","uint","uint","uint","int","uint","float","float","float","float","float","float","float","float","float","float","float","float"]
+,
+"vehicleuiindicator": ["int","string"]
+,
+"vehicleuiindseat": ["int","int","int","float","float"]
+,
+"worldbosslockout": ["int","string","int"]
+,
+"worldeffect": ["int","int","int","int","int","int","int"]
+,
+"worldmaparea": ["int","int","int","string","float","float","float","float","int","int","int","int","int","int"]
+,
+"worldmapoverlay": ["int","int","int","int","int","int","string","int","int","int","int","int","int","int","int","int"]
+,
+"worldmaptransforms": ["int","int","float","float","float","float","int","float","float","int","int","int","float","int","int"]
+,
+"worldsafelocs": ["int","uint","float","float","float","float","string"]
+,
+"worldstate": ["int"]
+,
+"worldstateexpression": ["int","string"]
+,
+"worldstateui": ["int","int","int","int","int","int","string","string","string","int","int","string","string","string","int","int","int"]
+,
+"zoneintromusictable": ["int","string","int","int","int"]
+,
+"zonemusic": ["int","string","int","int","int","int","int","int"]
+}

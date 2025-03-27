@@ -1,0 +1,54 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="DBCycle.SettingsWindow"
+        Title="Settings" Width="490" Height="460"
+        Opacity="0.9"
+        WindowStartupLocation="CenterOwner">
+  <Border BorderBrush="Purple" BorderThickness="2" Margin="10" Padding="10">
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="Auto"/>
+      </Grid.RowDefinitions>
+      
+      <!-- Main content in the first row -->
+      <StackPanel Grid.Row="0" Spacing="10">
+        <!-- DBC Connection String -->
+        <TextBlock Text="DBC Connection String:"/>
+        <TextBox x:Name="DbcConnectionStringTextBox" />
+        <StackPanel Orientation="Horizontal" Spacing="5">
+          <Button Content="Test DBC Connection" Click="TestDbcConnection_Click" />
+          <TextBlock x:Name="DbcConnectionStatus" Text="Not tested" VerticalAlignment="Center" />
+        </StackPanel>
+
+        <!-- DB2 Connection String -->
+        <TextBlock Text="DB2 Connection String:"/>
+        <TextBox x:Name="Db2ConnectionStringTextBox" />
+        <StackPanel Orientation="Horizontal" Spacing="5">
+          <Button Content="Test DB2 Connection" Click="TestDb2Connection_Click" />
+          <TextBlock x:Name="Db2ConnectionStatus" Text="Not tested" VerticalAlignment="Center" />
+        </StackPanel>
+
+        <!-- DBC File Directory -->
+        <TextBlock Text="DBC/DB2 File Import Path:"/>
+        <StackPanel Orientation="Horizontal" Spacing="5">
+          <TextBox x:Name="DbcFileDirectoryTextBox" Width="250"/>
+          <Button Content="Browse" Click="BrowseDbcFileDirectory_Click" />
+        </StackPanel>
+
+        <!-- Export Path -->
+        <TextBlock Text="DBC/DB2 Export Path:"/>
+        <StackPanel Orientation="Horizontal" Spacing="5">
+          <TextBox x:Name="ExportPathTextBox" Width="250"/>
+          <Button Content="Browse" Click="BrowseExportPath_Click" />
+        </StackPanel>
+      </StackPanel>
+      
+      <!-- Save/Cancel buttons in the second row -->
+      <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10">
+        <Button Content="Save" Click="Save_Click"/>
+        <Button Content="Cancel" Click="Cancel_Click"/>
+      </StackPanel>
+    </Grid>
+  </Border>
+</Window>

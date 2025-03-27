@@ -1,0 +1,13 @@
+db2 files...
+
+WbAccessControlList
+WbCertBlacklist
+WbCertWhitelist
+WbPermissions
+Vignette
+SpellVisualMissile
+
+dbc ..
+SpellVisualKitAreaModel.dbc
+
+-- DELETED FROM ALL JSON & LISTFILE --

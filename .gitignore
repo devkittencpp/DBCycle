@@ -1,0 +1,16 @@
+# Ignore dbc directory
+dbc/
+
+# Ignore bin directory
+bin/
+
+# Ignore obj directory
+obj/
+
+# Ignore only doc/config.json
+doc/config.json
+
+# Ensure everything else in doc/ is not ignored
+!doc/
+!doc/*
+

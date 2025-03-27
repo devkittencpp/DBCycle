@@ -1,0 +1,5162 @@
+{
+  "Tables": [
+    {
+      "Name": "Achievement_Category",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Parent", "Type": "int"},
+        {"Name": "Name_lang", "Type": "string"},
+        {"Name": "Ui_order", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "Achievement_Criteria",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Achievement_ID", "Type": "int"},
+        {"Name": "Type", "Type": "int"},
+        {"Name": "Asset_ID", "Type": "int"},
+        {"Name": "Quantity", "Type": "long"},
+        {"Name": "Start_event", "Type": "int"},
+        {"Name": "Start_asset", "Type": "int"},
+        {"Name": "Fail_event", "Type": "int"},
+        {"Name": "Fail_asset", "Type": "int"},
+        {"Name": "Description_lang", "Type": "int"},
+        {"Name": "Flags", "Type": "string"},
+        {"Name": "Timer_start_event", "Type": "int"},
+        {"Name": "Timer_asset_ID", "Type": "int"},
+        {"Name": "Timer_time", "Type": "int"},
+        {"Name": "Ui_order", "Type": "int"},
+        {"Name": "WorldStateID", "Type": "int"},
+        {"Name": "RequiredWorldStateStatus", "Type": "int"},
+        {"Name": "AdditionalConditionType", "Type": "int", "ArraySize": 3},
+        {"Name": "AdditionalConditionValue", "Type": "int", "ArraySize": 3}
+      ]
+    },
+    {
+      "Name": "Achievement",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Faction", "Type": "int"},
+        {"Name": "Instance_ID", "Type": "int"},
+        {"Name": "Supercedes", "Type": "int"},
+        {"Name": "Title_lang", "Type": "string"},
+        {"Name": "Description_lang", "Type": "string"},
+        {"Name": "Category", "Type": "int"},
+        {"Name": "Points", "Type": "int"},
+        {"Name": "Ui_order", "Type": "int"},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "IconID", "Type": "int"},
+        {"Name": "Reward_lang", "Type": "string"},
+        {"Name": "Minimum_criteria", "Type": "int"},
+        {"Name": "Shares_criteria", "Type": "int"},
+        {"Name": "Criteria_tree", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "AnimationData",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name", "Type": "string"},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "Fallback", "Type": "int"},
+        {"Name": "BehaviorID", "Type": "int"},
+        {"Name": "BehaviorTier", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "AnimKitBoneSetAlias",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "BoneDataID", "Type": "int"},
+        {"Name": "AnimKitBoneSetID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "AnimKitBoneSet",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name", "Type": "string"},
+        {"Name": "BoneDataID", "Type": "int"},
+        {"Name": "ParentAnimKitBoneSetID", "Type": "int"},
+        {"Name": "ExtraBoneCount", "Type": "int"},
+        {"Name": "AltAnimKitBoneSetID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "AnimKitConfigBoneSet",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ParentAnimKitConfigID", "Type": "int"},
+        {"Name": "AnimKitBoneSetID", "Type": "int"},
+        {"Name": "AnimKitPriorityID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "AnimKitConfig",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ConfigFlags", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "AnimKit",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "OneShotDuration", "Type": "int"},
+        {"Name": "OneShotStopAnimKitID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "AnimKitPriority",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Priority", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "AnimReplacement",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SrcAnimID", "Type": "int"},
+        {"Name": "DstAnimID", "Type": "int"},
+        {"Name": "ParentAnimReplacementSetID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "AnimReplacementSet",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ExecOrder", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "AreaAssignment",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "MapID", "Type": "int"},
+        {"Name": "AreaID", "Type": "int"},
+        {"Name": "ChunkX", "Type": "int"},
+        {"Name": "ChunkY", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "AreaGroup",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "AreaID", "Type": "int", "ArraySize": 6},
+        {"Name": "NextAreaID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "AreaPOI",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Importance", "Type": "int"},
+        {"Name": "Icon", "Type": "int", "ArraySize": 9},
+        {"Name": "FactionID", "Type": "int"},
+        {"Name": "Pos", "Type": "float", "ArraySize": 2},
+        {"Name": "ContinentID", "Type": "int"},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "AreaID", "Type": "int"},
+        {"Name": "Name_lang", "Type": "string"},
+        {"Name": "Description_lang", "Type": "string"},
+        {"Name": "WorldStateID", "Type": "int"},
+        {"Name": "PlayerConditionID", "Type": "int"},
+        {"Name": "WorldMapLink", "Type": "int"},
+        {"Name": "PortLocID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "AreaTable",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ContinentID", "Type": "int"},
+        {"Name": "ParentAreaID", "Type": "int"},
+        {"Name": "AreaBit", "Type": "int"},
+        {"Name": "Flags", "Type": "int", "ArraySize": 2},
+        {"Name": "SoundProviderPref", "Type": "int"},
+        {"Name": "SoundProviderPrefUnderwater", "Type": "int"},
+        {"Name": "AmbienceID", "Type": "int"},
+        {"Name": "ZoneMusic", "Type": "string"},
+        {"Name": "ZoneName", "Type": "int"},
+        {"Name": "IntroSound", "Type": "int"},
+        {"Name": "ExplorationLevel", "Type": "int"},
+        {"Name": "AreaName_lang", "Type": "string"},
+        {"Name": "FactionGroupMask", "Type": "int"},
+        {"Name": "LiquidTypeID", "Type": "int", "ArraySize": 4},
+        {"Name": "MinElevation", "Type": "float"},
+        {"Name": "Ambient_multiplier", "Type": "float"},
+        {"Name": "LightID", "Type": "int"},
+        {"Name": "MountFlags", "Type": "int"},
+        {"Name": "UwIntroSound", "Type": "int"},
+        {"Name": "UwZoneMusic", "Type": "int"},
+        {"Name": "UwAmbience", "Type": "int"},
+        {"Name": "World_pvp_ID", "Type": "int"},
+        {"Name": "PvpCombatWorldStateID", "Type": "int"},
+        {"Name": "WildBattlePetLevelMin", "Type": "int"},
+        {"Name": "WildBattlePetLevelMax", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "AreaTriggerActionSet",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Flags", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "AreaTriggerBox",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Extents", "Type": "float", "ArraySize": 3}
+      ]
+    },
+    {
+      "Name": "AreaTrigger",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ContinentID", "Type": "int"},
+        {"Name": "Pos", "Type": "float", "ArraySize": 3},
+        {"Name": "PhaseUseFlags", "Type": "int"},
+        {"Name": "PhaseID", "Type": "int"},
+        {"Name": "PhaseGroupID", "Type": "int"},
+        {"Name": "Radius", "Type": "float"},
+        {"Name": "Box_length", "Type": "float"},
+        {"Name": "Box_width", "Type": "float"},
+        {"Name": "Box_height", "Type": "float"},
+        {"Name": "Box_yaw", "Type": "float"},
+        {"Name": "ShapeType", "Type": "int"},
+        {"Name": "ShapeID", "Type": "int"},
+        {"Name": "AreaTriggerActionSetID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "AreaTriggerSphere",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "MaxRadius", "Type": "float"}
+      ]
+    },
+    {
+      "Name": "ArmorLocation",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Clothmodifier", "Type": "int"},
+        {"Name": "Leathermodifier", "Type": "int"},
+        {"Name": "Chainmodifier", "Type": "int"},
+        {"Name": "Platemodifier", "Type": "int"},
+        {"Name": "Modifier", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "AttackAnimKits",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ItemSubclassID", "Type": "int"},
+        {"Name": "AnimTypeID", "Type": "int"},
+        {"Name": "AnimFrequency", "Type": "int"},
+        {"Name": "WhichHand", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "AttackAnimTypes",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "AuctionHouse",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "FactionID", "Type": "int"},
+        {"Name": "DepositRate", "Type": "int"},
+        {"Name": "ConsignmentRate", "Type": "int"},
+        {"Name": "Name_lang", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "BankBagSlotPrices",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Cost", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "BannedAddons",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "NameMD5", "Type": "", "ArraySize": 4},
+        {"Name": "VersionMD5", "Type": "", "ArraySize": 4},
+        {"Name": "LastModified", "Type": ""},
+        {"Name": "Flags", "Type": ""}
+      ]
+    },
+    {
+      "Name": "BarberShopStyle",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Type", "Type": "int"},
+        {"Name": "DisplayName_lang", "Type": "string"},
+        {"Name": "Description_lang", "Type": "int"},
+        {"Name": "Cost_Modifier", "Type": "float"},
+        {"Name": "Race", "Type": "int"},
+        {"Name": "Sex", "Type": "string"},
+        {"Name": "Data", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "BattlemasterList",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "MapID", "Type": "", "ArraySize": 16},
+        {"Name": "InstanceType", "Type": ""},
+        {"Name": "GroupsAllowed", "Type": ""},
+        {"Name": "Name_lang", "Type": ""},
+        {"Name": "MaxGroupSize", "Type": ""},
+        {"Name": "HolidayWorldState", "Type": ""},
+        {"Name": "MinLevel", "Type": ""},
+        {"Name": "MaxLevel", "Type": ""},
+        {"Name": "RatedPlayers", "Type": ""},
+        {"Name": "MinPlayers", "Type": ""},
+        {"Name": "MaxPlayers", "Type": ""},
+        {"Name": "Flags", "Type": ""},
+        {"Name": "IconFileDataID", "Type": ""},
+        {"Name": "GameType_lang", "Type": ""}
+      ]
+    },
+    {
+      "Name": "BattlePetAbilityEffect",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "BattlePetAbilityTurnID", "Type": "int"},
+        {"Name": "BattlePetVisualID", "Type": "int"},
+        {"Name": "AuraBattlePetAbilityID", "Type": "int"},
+        {"Name": "BattlePetEffectPropertiesID", "Type": "int"},
+        {"Name": "OrderIndex", "Type": "int"},
+        {"Name": "Param", "Type": "int", "ArraySize": 6}
+      ]
+    },
+    {
+      "Name": "BattlePetAbilityState",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "BattlePetAbilityID", "Type": ""},
+        {"Name": "BattlePetStateID", "Type": ""},
+        {"Name": "Value", "Type": ""}
+      ]
+    },
+    {
+      "Name": "BattlePetAbilityTurn",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "BattlePetAbilityID", "Type": "int"},
+        {"Name": "BattlePetVisualID", "Type": "int"},
+        {"Name": "OrderIndex", "Type": "int"},
+        {"Name": "TurnTypeEnum", "Type": "int"},
+        {"Name": "EventTypeEnum", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "BattlePetBreedQuality",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "QualityEnum", "Type": "int"},
+        {"Name": "StateMultiplier", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "BattlePetBreedState",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "BattlePetBreedID", "Type": ""},
+        {"Name": "BattlePetStateID", "Type": ""},
+        {"Name": "Value", "Type": ""}
+      ]
+    },
+    {
+      "Name": "BattlePetEffectProperties",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "BattlePetVisualID", "Type": "int"},
+        {"Name": "ParamLabel", "Type": "int", "ArraySize": 6},
+        {"Name": "ParamTypeEnum", "Type": "int", "ArraySize": 6}
+      ]
+    },
+    {
+      "Name": "BattlePetNPCTeamMember",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name_lang", "Type": ""}
+      ]
+    },
+    {
+      "Name": "BattlePetSpecies",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "CreatureID", "Type": ""},
+        {"Name": "IconFileDataID", "Type": ""},
+        {"Name": "SummonSpellID", "Type": ""},
+        {"Name": "PetTypeEnum", "Type": ""},
+        {"Name": "SourceTypeEnum", "Type": ""},
+        {"Name": "Flags", "Type": ""},
+        {"Name": "SourceText_lang", "Type": ""},
+        {"Name": "Description_lang", "Type": ""}
+      ]
+    },
+    {
+      "Name": "BattlePetSpeciesState",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "BattlePetSpeciesID", "Type": ""},
+        {"Name": "BattlePetStateID", "Type": ""},
+        {"Name": "Value", "Type": ""}
+      ]
+    },
+    {
+      "Name": "BattlePetSpeciesXAbility",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "BattlePetSpeciesID", "Type": ""},
+        {"Name": "BattlePetAbilityID", "Type": ""},
+        {"Name": "RequiredLevel", "Type": ""},
+        {"Name": "SlotEnum", "Type": ""}
+      ]
+    },
+    {
+      "Name": "BattlePetState",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "BattlePetVisualID", "Type": ""},
+        {"Name": "LuaName", "Type": ""},
+        {"Name": "Flags", "Type": ""}
+      ]
+    },
+    {
+      "Name": "BattlePetVisual",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SpellVisualID", "Type": "int"},
+        {"Name": "CastMilliSeconds", "Type": "int"},
+        {"Name": "ImpactMilliSeconds", "Type": "int"},
+        {"Name": "RangeTypeEnum", "Type": "int"},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "SceneScriptPackageID", "Type": "int"},
+        {"Name": "SceneScriptFunction", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "BroadcastText",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "LanguageID", "Type": "int"},
+        {"Name": "Text_lang", "Type": "string"},
+        {"Name": "Text1_lang", "Type": "string"},
+        {"Name": "EmoteID", "Type": "int", "ArraySize": 3},
+        {"Name": "EmoteDelay", "Type": "int", "ArraySize": 3},
+        {"Name": "SoundEntriesID", "Type": "int"},
+        {"Name": "EmotesID", "Type": "int"},
+        {"Name": "Flags", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "CameraMode",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name", "Type": "string"},
+        {"Name": "Type", "Type": "int"},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "PositionOffset", "Type": "int", "ArraySize": 3},
+        {"Name": "TargetOffset", "Type": "int", "ArraySize": 3},
+        {"Name": "PositionSmoothing", "Type": "int"},
+        {"Name": "RotationSmoothing", "Type": "int"},
+        {"Name": "FieldOfView", "Type": "int"},
+        {"Name": "LockedPositionOffsetBase", "Type": "int"},
+        {"Name": "LockedPositionOffsetDirection", "Type": "int"},
+        {"Name": "LockedTargetOffsetBase", "Type": "int"},
+        {"Name": "LockedTargetOffsetDirection", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "CameraShakes",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ShakeType", "Type": "int"},
+        {"Name": "Direction", "Type": "int"},
+        {"Name": "Amplitude", "Type": "int"},
+        {"Name": "Frequency", "Type": "float"},
+        {"Name": "Duration", "Type": "int"},
+        {"Name": "Phase", "Type": "int"},
+        {"Name": "Coefficient", "Type": "int"},
+        {"Name": "Flags", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "CastableRaidBuffs",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SpellID", "Type": "int"},
+        {"Name": "CastingSpellID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "Cfg_Categories",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "LocaleMask", "Type": "int"},
+        {"Name": "Create_charsetMask", "Type": "int"},
+        {"Name": "Existing_charsetMask", "Type": "int"},
+        {"Name": "Flags", "Type": "string"},
+        {"Name": "Name_lang", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "Cfg_Configs",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "RealmType", "Type": "int"},
+        {"Name": "PlayerKillingAllowed", "Type": "int"},
+        {"Name": "Roleplaying", "Type": "int"},
+        {"Name": "PlayerAttackSpeedBase", "Type": "int"},
+        {"Name": "MaxDamageReductionPctPhysical", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "Cfg_Regions",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Tag", "Type": "string"},
+        {"Name": "Region_group_mask", "Type": "int"},
+        {"Name": "RulesetID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "CharacterFacialHairStyles",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "RaceID", "Type": "int"},
+        {"Name": "SexID", "Type": "int"},
+        {"Name": "VariationID", "Type": "int"},
+        {"Name": "Geoset", "Type": "int", "ArraySize": 5}
+      ]
+    },
+    {
+      "Name": "CharacterLoadout",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ChrClassID", "Type": "int"},
+        {"Name": "Purpose", "Type": "int"},
+        {"Name": "Racemask", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "CharacterLoadoutItem",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "CharacterLoadoutID", "Type": "int"},
+        {"Name": "ItemID", "Type": "int"},
+        {"Name": "ItemDisplayInfoID", "Type": "int"},
+        {"Name": "ItemInventoryType", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "CharBaseInfo",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "RaceID", "Type": "byte"},
+        {"Name": "ClassID", "Type": "byte"},
+        {"Name": "Padding_4_0_0_11792_003", "Type": "byte", "ArraySize": 2}
+      ]
+    },
+    {
+      "Name": "CharComponentTextureLayouts",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Width", "Type": "int"},
+        {"Name": "Height", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "CharComponentTextureSections",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "CharComponentTextureLayoutID", "Type": "int"},
+        {"Name": "SectionType", "Type": "int"},
+        {"Name": "X", "Type": "int"},
+        {"Name": "Y", "Type": "int"},
+        {"Name": "Width", "Type": "int"},
+        {"Name": "Height", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "CharHairGeosets",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "RaceID", "Type": "int"},
+        {"Name": "SexID", "Type": "int"},
+        {"Name": "VariationID", "Type": "int"},
+        {"Name": "VariationType", "Type": "int"},
+        {"Name": "GeosetID", "Type": "int"},
+        {"Name": "GeosetType", "Type": "int"},
+        {"Name": "Showscalp", "Type": "int"},
+        {"Name": "ColorIndex", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "CharSections",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "RaceID", "Type": "int"},
+        {"Name": "SexID", "Type": "int"},
+        {"Name": "BaseSection", "Type": "int"},
+        {"Name": "TextureName", "Type": "string", "ArraySize": 3},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "VariationIndex", "Type": ""},
+        {"Name": "ColorIndex", "Type": ""}
+      ]
+    },
+    {
+      "Name": "CharStartOutfit",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "RaceID", "Type": ""},
+        {"Name": "ClassID", "Type": ""},
+        {"Name": "SexID", "Type": ""},
+        {"Name": "OutfitID", "Type": ""},
+        {"Name": "ItemID", "Type": "", "ArraySize": 24},
+        {"Name": "DisplayItemID", "Type": "", "ArraySize": 24},
+        {"Name": "InventoryType", "Type": "", "ArraySize": 24},
+        {"Name": "PetDisplayID", "Type": ""},
+        {"Name": "PetFamilyID", "Type": ""}
+      ]
+    },
+    {
+      "Name": "CharTitles",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Condition_ID", "Type": "int"},
+        {"Name": "Name_lang", "Type": "string"},
+        {"Name": "Name1_lang", "Type": "string"},
+        {"Name": "Mask_ID", "Type": "int"},
+        {"Name": "Flags", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ChatChannels",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "FactionGroup", "Type": "int"},
+        {"Name": "Name_lang", "Type": "string"},
+        {"Name": "Shortcut_lang", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "ChatProfanity",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Text", "Type": "string"},
+        {"Name": "Language", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ChrClasses",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "DisplayPower", "Type": "int"},
+        {"Name": "PetNameToken", "Type": "string"},
+        {"Name": "Name_lang", "Type": "string"},
+        {"Name": "Name_female_lang", "Type": "int"},
+        {"Name": "Name_male_lang", "Type": "int"},
+        {"Name": "Filename", "Type": "string"},
+        {"Name": "SpellClassSet", "Type": "int"},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "CinematicSequenceID", "Type": "int"},
+        {"Name": "AttackPowerPerStrength", "Type": "int"},
+        {"Name": "AttackPowerPerAgility", "Type": "int"},
+        {"Name": "RangedAttackPowerPerAgility", "Type": "int"},
+        {"Name": "DefaultSpec", "Type": "int"},
+        {"Name": "CreateScreenFileDataID", "Type": "int"},
+        {"Name": "SelectScreenFileDataID", "Type": "int"},
+        {"Name": "LowResScreenFileDataID", "Type": "int"},
+        {"Name": "IconFileDataID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ChrClassesXPowerTypes",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ClassID", "Type": "int"},
+        {"Name": "PowerType", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ChrRaces",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "FactionID", "Type": "int"},
+        {"Name": "ExplorationSoundID", "Type": "int"},
+        {"Name": "MaleDisplayID", "Type": "int"},
+        {"Name": "FemaleDisplayID", "Type": "int"},
+        {"Name": "ClientPrefix", "Type": "string"},
+        {"Name": "BaseLanguage", "Type": "int"},
+        {"Name": "CreatureType", "Type": "int"},
+        {"Name": "ResSicknessSpellID", "Type": "int"},
+        {"Name": "SplashSoundID", "Type": "int"},
+        {"Name": "ClientFileString", "Type": "string"},
+        {"Name": "CinematicSequenceID", "Type": "int"},
+        {"Name": "Alliance", "Type": "int"},
+        {"Name": "Name_lang", "Type": "string"},
+        {"Name": "Name_female_lang", "Type": "int"},
+        {"Name": "Name_male_lang", "Type": "int"},
+        {"Name": "FacialHairCustomization", "Type": "string", "ArraySize": 2},
+        {"Name": "HairCustomization", "Type": "string"},
+        {"Name": "Race_related", "Type": "int"},
+        {"Name": "UnalteredVisualRaceID", "Type": "int"},
+        {"Name": "UaMaleCreatureSoundDataID", "Type": "int"},
+        {"Name": "UaFemaleCreatureSoundDataID", "Type": "int"},
+        {"Name": "CharComponentTextureLayoutID", "Type": "int"},
+        {"Name": "DefaultClassID", "Type": "int"},
+        {"Name": "CreateScreenFileDataID", "Type": "int"},
+        {"Name": "SelectScreenFileDataID", "Type": "int"},
+        {"Name": "MaleCustomizeOffset", "Type": "int", "ArraySize": 3},
+        {"Name": "FemaleCustomizeOffset", "Type": "int", "ArraySize": 3},
+        {"Name": "NeutralRaceID", "Type": "int"},
+        {"Name": "LowResScreenFileDataID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ChrSpecialization",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "BackgroundFile", "Type": "string"},
+        {"Name": "ClassID", "Type": "int"},
+        {"Name": "MasterySpellID", "Type": "int", "ArraySize": 2},
+        {"Name": "OrderIndex", "Type": "int"},
+        {"Name": "PetTalentType", "Type": "int"},
+        {"Name": "Role", "Type": "int"},
+        {"Name": "SpellIconID", "Type": "int"},
+        {"Name": "RaidBuffs", "Type": "int"},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "Name_lang", "Type": "string"},
+        {"Name": "Description_lang", "Type": "string"},
+        {"Name": "MaxBuffs", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "CinematicCamera",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Model", "Type": "string"},
+        {"Name": "SoundID", "Type": "int"},
+        {"Name": "Origin", "Type": "int", "ArraySize": 3},
+        {"Name": "OriginFacing", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "CinematicSequences",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SoundID", "Type": "int"},
+        {"Name": "Camera", "Type": "int", "ArraySize": 8}
+      ]
+    },
+    {
+      "Name": "CombatCondition",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "WorldStateExpressionID", "Type": "int"},
+        {"Name": "SelfConditionID", "Type": "int"},
+        {"Name": "TargetConditionID", "Type": "int"},
+        {"Name": "FriendConditionID", "Type": "int", "ArraySize": 2},
+        {"Name": "FriendConditionOp", "Type": "int", "ArraySize": 2},
+        {"Name": "FriendConditionCount", "Type": "int", "ArraySize": 2},
+        {"Name": "FriendConditionLogic", "Type": "int"},
+        {"Name": "EnemyConditionID", "Type": "int", "ArraySize": 2},
+        {"Name": "EnemyConditionOp", "Type": "int", "ArraySize": 2},
+        {"Name": "EnemyConditionCount", "Type": "int", "ArraySize": 2},
+        {"Name": "EnemyConditionLogic", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "Creature",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "AlwaysItem", "Type": "int", "ArraySize": 3},
+        {"Name": "MountCreatureID", "Type": "int"},
+        {"Name": "DisplayID", "Type": "int", "ArraySize": 4},
+        {"Name": "DisplayProbability", "Type": "int", "ArraySize": 4},
+        {"Name": "Name_lang", "Type": "int"},
+        {"Name": "Title_lang", "Type": "int"},
+        {"Name": "CreatureFamily", "Type": "int"},
+        {"Name": "Classification", "Type": "int"},
+        {"Name": "StartAnimState", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "CreatureDifficulty",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "CreatureID", "Type": "int"},
+        {"Name": "FactionTemplateID", "Type": "int"},
+        {"Name": "ExpansionID", "Type": "int"},
+        {"Name": "MinLevel", "Type": "int"},
+        {"Name": "MaxLevel", "Type": "int"},
+        {"Name": "Flags", "Type": "int", "ArraySize": 5}
+      ]
+    },
+    {
+      "Name": "CreatureDisplayInfo",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ModelID", "Type": "int"},
+        {"Name": "SoundID", "Type": "int"},
+        {"Name": "ExtendedDisplayInfoID", "Type": "int"},
+        {"Name": "CreatureModelScale", "Type": "float"},
+        {"Name": "CreatureModelAlpha", "Type": "int"},
+        {"Name": "TextureVariation", "Type": "string", "ArraySize": 3},
+        {"Name": "PortraitTextureName", "Type": "int"},
+        {"Name": "SizeClass", "Type": "int"},
+        {"Name": "BloodID", "Type": "int"},
+        {"Name": "NPCSoundID", "Type": "int"},
+        {"Name": "ParticleColorID", "Type": "int"},
+        {"Name": "CreatureGeosetData", "Type": "int"},
+        {"Name": "ObjectEffectPackageID", "Type": "int"},
+        {"Name": "AnimReplacementSetID", "Type": "int"},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "Gender", "Type": ""},
+        {"Name": "StateSpellVisualKitID", "Type": ""}
+      ]
+    },
+    {
+      "Name": "CreatureFamily",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "MinScale", "Type": "int"},
+        {"Name": "MinScaleLevel", "Type": "string"},
+        {"Name": "MaxScale", "Type": "int"},
+        {"Name": "MaxScaleLevel", "Type": "int"},
+        {"Name": "SkillLine", "Type": "int", "ArraySize": 2},
+        {"Name": "PetFoodMask", "Type": "int"},
+        {"Name": "PetTalentType", "Type": "int"},
+        {"Name": "CategoryEnumID", "Type": "int"},
+        {"Name": "Name_lang", "Type": "string"},
+        {"Name": "IconFile", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "CreatureImmunities",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "School", "Type": "int"},
+        {"Name": "DispelType", "Type": "int"},
+        {"Name": "MechanicsAllowed", "Type": "int"},
+        {"Name": "Mechanic", "Type": "int"},
+        {"Name": "EffectsAllowed", "Type": "int"},
+        {"Name": "Effect", "Type": "int", "ArraySize": 8},
+        {"Name": "StatesAllowed", "Type": "int"},
+        {"Name": "State", "Type": "int", "ArraySize": 14},
+        {"Name": "Flags", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "CreatureModelData",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "ModelName", "Type": "string"},
+        {"Name": "SizeClass", "Type": "int"},
+        {"Name": "ModelScale", "Type": "float"},
+        {"Name": "BloodID", "Type": "int"},
+        {"Name": "FootprintTextureID", "Type": "int"},
+        {"Name": "FootprintTextureLength", "Type": "float"},
+        {"Name": "FootprintTextureWidth", "Type": "float"},
+        {"Name": "FootprintParticleScale", "Type": "float"},
+        {"Name": "FoleyMaterialID", "Type": "int"},
+        {"Name": "FootstepShakeSize", "Type": "int"},
+        {"Name": "DeathThudShakeSize", "Type": "int"},
+        {"Name": "SoundID", "Type": "int"},
+        {"Name": "CollisionWidth", "Type": "float"},
+        {"Name": "CollisionHeight", "Type": "float"},
+        {"Name": "MountHeight", "Type": "float"},
+        {"Name": "GeoBoxMin", "Type": "float", "ArraySize": 3},
+        {"Name": "GeoBoxMax", "Type": "float", "ArraySize": 3},
+        {"Name": "WorldEffectScale", "Type": "float"},
+        {"Name": "AttachedEffectScale", "Type": "float"},
+        {"Name": "MissileCollisionRadius", "Type": "float"},
+        {"Name": "MissileCollisionPush", "Type": "float"},
+        {"Name": "MissileCollisionRaise", "Type": "float"},
+        {"Name": "OverrideLootEffectScale", "Type": "float"},
+        {"Name": "OverrideNameScale", "Type": "float"},
+        {"Name": "OverrideSelectionRadius", "Type": "float"},
+        {"Name": "TamedPetBaseScale", "Type": "float"},
+        {"Name": "CreatureGeosetDataID", "Type": "int"},
+        {"Name": "HoverHeight", "Type": "float"}
+      ]
+    },
+    {
+      "Name": "CreatureMovementInfo",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SmoothFacingChaseRate", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "CreatureSoundData",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SoundExertionID", "Type": "int"},
+        {"Name": "SoundExertionCriticalID", "Type": "int"},
+        {"Name": "SoundInjuryID", "Type": "int"},
+        {"Name": "SoundInjuryCriticalID", "Type": "int"},
+        {"Name": "SoundInjuryCrushingBlowID", "Type": "int"},
+        {"Name": "SoundDeathID", "Type": "int"},
+        {"Name": "SoundStunID", "Type": "int"},
+        {"Name": "SoundStandID", "Type": "int"},
+        {"Name": "SoundFootstepID", "Type": "int"},
+        {"Name": "SoundAggroID", "Type": "int"},
+        {"Name": "SoundWingFlapID", "Type": "int"},
+        {"Name": "SoundWingGlideID", "Type": "int"},
+        {"Name": "SoundAlertID", "Type": "int"},
+        {"Name": "SoundFidget", "Type": "int", "ArraySize": 5},
+        {"Name": "CustomAttack", "Type": "int", "ArraySize": 4},
+        {"Name": "NPCSoundID", "Type": "int"},
+        {"Name": "LoopSoundID", "Type": "int"},
+        {"Name": "CreatureImpactType", "Type": "int"},
+        {"Name": "SoundJumpStartID", "Type": "int"},
+        {"Name": "SoundJumpEndID", "Type": "int"},
+        {"Name": "SoundPetAttackID", "Type": "int"},
+        {"Name": "SoundPetOrderID", "Type": "int"},
+        {"Name": "SoundPetDismissID", "Type": "int"},
+        {"Name": "FidgetDelaySecondsMin", "Type": "int"},
+        {"Name": "FidgetDelaySecondsMax", "Type": "int"},
+        {"Name": "BirthSoundID", "Type": "int"},
+        {"Name": "SpellCastDirectedSoundID", "Type": "int"},
+        {"Name": "SubmergeSoundID", "Type": "int"},
+        {"Name": "SubmergedSoundID", "Type": "int"},
+        {"Name": "CreatureSoundDataIDPet", "Type": "int"},
+        {"Name": "TransformSoundID", "Type": "int"},
+        {"Name": "TransformAnimatedSoundID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "CreatureSpellData",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Spells", "Type": "int", "ArraySize": 4},
+        {"Name": "Availability", "Type": "int", "ArraySize": 4}
+      ]
+    },
+    {
+      "Name": "CreatureType",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name_lang", "Type": "string"},
+        {"Name": "Flags", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "Criteria",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Type", "Type": "int"},
+        {"Name": "Asset", "Type": "int"},
+        {"Name": "Start_event", "Type": "int"},
+        {"Name": "Start_asset", "Type": "int"},
+        {"Name": "Start_timer", "Type": "int"},
+        {"Name": "Fail_event", "Type": "int"},
+        {"Name": "Fail_asset", "Type": "int"},
+        {"Name": "Modifier_tree_ID", "Type": "int"},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "Eligibility_world_state_ID", "Type": "int"},
+        {"Name": "Eligibility_world_state_value", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "CriteriaTree",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "CriteriaID", "Type": "int"},
+        {"Name": "Amount", "Type": "long"},
+        {"Name": "Operator", "Type": "int"},
+        {"Name": "Parent", "Type": "int"},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "Description_lang", "Type": "int"},
+        {"Name": "OrderIndex", "Type": "string"},
+        {"Name": "Padding_6_0_1_18179_008", "Type": "", "ArraySize": 4}
+      ]
+    },
+    {
+      "Name": "CriteriaTreeXEffect",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "CriteriaTreeID", "Type": "int"},
+        {"Name": "WorldEffectID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "CurrencyCategory",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "Name_lang", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "CurrencyTypes",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "CategoryID", "Type": "int"},
+        {"Name": "Name_lang", "Type": "string"},
+        {"Name": "InventoryIcon", "Type": "string", "ArraySize": 2},
+        {"Name": "SpellWeight", "Type": "int"},
+        {"Name": "SpellCategory", "Type": "int"},
+        {"Name": "MaxQty", "Type": "int"},
+        {"Name": "MaxEarnablePerWeek", "Type": "int"},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "Quality", "Type": "int"},
+        {"Name": "Description_lang", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "Curve",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Type", "Type": ""},
+        {"Name": "Flags", "Type": ""}
+      ]
+    },
+    {
+      "Name": "CurvePoint",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "CurveID", "Type": ""},
+        {"Name": "OrderIndex", "Type": ""},
+        {"Name": "Pos", "Type": "", "ArraySize": 2}
+      ]
+    },
+    {
+      "Name": "DeathThudLookups",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SizeClass", "Type": "int"},
+        {"Name": "TerrainTypeSoundID", "Type": "int"},
+        {"Name": "SoundEntryID", "Type": "int"},
+        {"Name": "SoundEntryIDWater", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "DeclinedWordCases",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "DeclinedWordID", "Type": ""},
+        {"Name": "CaseIndex", "Type": ""},
+        {"Name": "DeclinedWord", "Type": ""}
+      ]
+    },
+    {
+      "Name": "DeclinedWord",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Word", "Type": ""}
+      ]
+    },
+    {
+      "Name": "DestructibleModelData",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "State0WMO", "Type": "int"},
+        {"Name": "State0ImpactEffectDoodadSet", "Type": "int"},
+        {"Name": "State0AmbientDoodadSet", "Type": "int"},
+        {"Name": "State0NameSet", "Type": "int"},
+        {"Name": "State1WMO", "Type": "int"},
+        {"Name": "State1DestructionDoodadSet", "Type": "int"},
+        {"Name": "State1ImpactEffectDoodadSet", "Type": "int"},
+        {"Name": "State1AmbientDoodadSet", "Type": "int"},
+        {"Name": "State1NameSet", "Type": "int"},
+        {"Name": "State2WMO", "Type": "int"},
+        {"Name": "State2DestructionDoodadSet", "Type": "int"},
+        {"Name": "State2ImpactEffectDoodadSet", "Type": "int"},
+        {"Name": "State2AmbientDoodadSet", "Type": "int"},
+        {"Name": "State2NameSet", "Type": "int"},
+        {"Name": "State3WMO", "Type": "int"},
+        {"Name": "State3InitDoodadSet", "Type": "int"},
+        {"Name": "State3AmbientDoodadSet", "Type": "int"},
+        {"Name": "State3NameSet", "Type": "int"},
+        {"Name": "EjectDirection", "Type": "int"},
+        {"Name": "RepairGroundFx", "Type": "int"},
+        {"Name": "DoNotHighlight", "Type": "int"},
+        {"Name": "HealEffect", "Type": "int"},
+        {"Name": "HealEffectSpeed", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "DeviceBlacklist",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "VendorID", "Type": ""},
+        {"Name": "DeviceID", "Type": ""}
+      ]
+    },
+    {
+      "Name": "Difficulty",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "FallbackDifficultyID", "Type": "int"},
+        {"Name": "InstanceType", "Type": "int"},
+        {"Name": "MinPlayers", "Type": "int"},
+        {"Name": "MaxPlayers", "Type": "int"},
+        {"Name": "OldEnumValue", "Type": "int"},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "ToggleDifficultyID", "Type": "int"},
+        {"Name": "GroupSizeHealthCurveID", "Type": "int"},
+        {"Name": "GroupSizeDmgCurveID", "Type": "int"},
+        {"Name": "GroupSizeSpellPointsCurveID", "Type": "int"},
+        {"Name": "Name_lang", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "DriverBlacklist",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "VendorID", "Type": ""},
+        {"Name": "DeviceID", "Type": ""},
+        {"Name": "DriverVersionHi", "Type": ""},
+        {"Name": "DriverVersionLow", "Type": ""},
+        {"Name": "OsVersion", "Type": ""},
+        {"Name": "OsBits", "Type": ""},
+        {"Name": "Flags", "Type": ""}
+      ]
+    },
+    {
+      "Name": "DungeonEncounter",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "MapID", "Type": "int"},
+        {"Name": "DifficultyID", "Type": "int"},
+        {"Name": "OrderIndex", "Type": "int"},
+        {"Name": "Bit", "Type": "int"},
+        {"Name": "Name_lang", "Type": "string"},
+        {"Name": "CreatureDisplayID", "Type": "int"},
+        {"Name": "SpellIconID", "Type": "int"},
+        {"Name": "Flags", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "DungeonMapChunk",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "MapID", "Type": "int"},
+        {"Name": "WMOGroupID", "Type": "int"},
+        {"Name": "DungeonMapID", "Type": "int"},
+        {"Name": "MinZ", "Type": "float"},
+        {"Name": "DoodadPlacementID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "DungeonMap",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "MapID", "Type": "int"},
+        {"Name": "FloorIndex", "Type": "int"},
+        {"Name": "Min", "Type": "float", "ArraySize": 2},
+        {"Name": "Max", "Type": "float", "ArraySize": 2},
+        {"Name": "ParentWorldMapID", "Type": "int"},
+        {"Name": "Flags", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "DurabilityQuality",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Data", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "Emotes",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "EmoteSlashCommand", "Type": "string"},
+        {"Name": "AnimID", "Type": "int"},
+        {"Name": "EmoteFlags", "Type": "int"},
+        {"Name": "EmoteSpecProc", "Type": "int"},
+        {"Name": "EmoteSpecProcParam", "Type": "int"},
+        {"Name": "EventSoundID", "Type": "int"},
+        {"Name": "SpellVisualKitID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "EmotesTextData",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Text_lang", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "EmotesText",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name", "Type": "string"},
+        {"Name": "EmoteID", "Type": ""},
+        {"Name": "EmoteText", "Type": "", "ArraySize": 16}
+      ]
+    },
+    {
+      "Name": "EmotesTextSound",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "EmotesTextID", "Type": "int"},
+        {"Name": "RaceID", "Type": "int"},
+        {"Name": "SexID", "Type": "int"},
+        {"Name": "SoundID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "EnvironmentalDamage",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "EnumID", "Type": "int"},
+        {"Name": "VisualkitID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "Exhaustion",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Xp", "Type": "int"},
+        {"Name": "Factor", "Type": "float"},
+        {"Name": "OutdoorHours", "Type": "int"},
+        {"Name": "InnHours", "Type": "int"},
+        {"Name": "Name_lang", "Type": "string"},
+        {"Name": "Threshold", "Type": "int"},
+        {"Name": "CombatLogText", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "Faction",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ReputationIndex", "Type": "int"},
+        {"Name": "ReputationRaceMask", "Type": "int", "ArraySize": 4},
+        {"Name": "ReputationClassMask", "Type": "int", "ArraySize": 4},
+        {"Name": "ReputationBase", "Type": "int", "ArraySize": 4},
+        {"Name": "ReputationFlags", "Type": "int", "ArraySize": 4},
+        {"Name": "ParentFactionID", "Type": "int"},
+        {"Name": "ParentFactionMod", "Type": "float", "ArraySize": 2},
+        {"Name": "ParentFactionCap", "Type": "int", "ArraySize": 2},
+        {"Name": "Name_lang", "Type": "string"},
+        {"Name": "Description_lang", "Type": "string"},
+        {"Name": "Expansion", "Type": "int"},
+        {"Name": "Flags", "Type": ""},
+        {"Name": "FriendshipRepID", "Type": ""}
+      ]
+    },
+    {
+      "Name": "FactionGroup",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "MaskID", "Type": "int"},
+        {"Name": "InternalName", "Type": "string"},
+        {"Name": "Name_lang", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "FactionTemplate",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Faction", "Type": "int"},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "FactionGroup", "Type": "int"},
+        {"Name": "FriendGroup", "Type": "int"},
+        {"Name": "EnemyGroup", "Type": "int"},
+        {"Name": "Enemies", "Type": "int", "ArraySize": 4},
+        {"Name": "Friend", "Type": "int", "ArraySize": 4}
+      ]
+    },
+    {
+      "Name": "FileData",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Filename", "Type": "string"},
+        {"Name": "Filepath", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "FootprintTextures",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "FootstepFilename", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "FootstepTerrainLookup",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "CreatureFootstepID", "Type": "int"},
+        {"Name": "TerrainSoundID", "Type": "int"},
+        {"Name": "SoundID", "Type": "int"},
+        {"Name": "SoundIDSplash", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "FriendshipRepReaction",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "FriendshipRepID", "Type": "int"},
+        {"Name": "ReactionThreshold", "Type": "int"},
+        {"Name": "Reaction_lang", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "FriendshipReputation",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "FactionID", "Type": "int"},
+        {"Name": "TextureFileID", "Type": "int"},
+        {"Name": "Description_lang", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "GameObjectArtKit",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "TextureVariation", "Type": "int", "ArraySize": 3},
+        {"Name": "AttachModel", "Type": "string", "ArraySize": 4}
+      ]
+    },
+    {
+      "Name": "GameObjectDiffAnimMap",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "GameObjectDiffAnimID", "Type": "int"},
+        {"Name": "DifficultyID", "Type": "int"},
+        {"Name": "Animation", "Type": "int"},
+        {"Name": "AttachmentDisplayID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "GameObjectDisplayInfo",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ModelName", "Type": "string"},
+        {"Name": "Sound", "Type": "int", "ArraySize": 10},
+        {"Name": "GeoBoxMin", "Type": "", "ArraySize": 3},
+        {"Name": "GeoBoxMax", "Type": "", "ArraySize": 3},
+        {"Name": "ObjectEffectPackageID", "Type": ""},
+        {"Name": "OverrideLootEffectScale", "Type": ""},
+        {"Name": "OverrideNameScale", "Type": ""}
+      ]
+    },
+    {
+      "Name": "GameObjects",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "OwnerID", "Type": "int"},
+        {"Name": "DisplayID", "Type": "int"},
+        {"Name": "Pos", "Type": "float", "ArraySize": 3},
+        {"Name": "Rot", "Type": "float", "ArraySize": 4},
+        {"Name": "Scale", "Type": "int"},
+        {"Name": "TypeID", "Type": "int"},
+        {"Name": "PropValue", "Type": "int", "ArraySize": 4},
+        {"Name": "Name_lang", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "GameTables",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name", "Type": "string"},
+        {"Name": "NumRows", "Type": "int"},
+        {"Name": "NumColumns", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "GameTips",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Text_lang", "Type": "string"},
+        {"Name": "Min_level", "Type": "int"},
+        {"Name": "Max_level", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "GemProperties",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Enchant_ID", "Type": "int"},
+        {"Name": "Maxcount_inv", "Type": "int"},
+        {"Name": "Maxcount_item", "Type": "int"},
+        {"Name": "Type", "Type": "int"},
+        {"Name": "Min_item_level", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "GlueScreenEmote",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ClassID", "Type": "int"},
+        {"Name": "RaceID", "Type": "int"},
+        {"Name": "SexID", "Type": "int"},
+        {"Name": "LeftHandItemType", "Type": "int"},
+        {"Name": "RightHandItemType", "Type": "int"},
+        {"Name": "AnimKitID", "Type": "int"},
+        {"Name": "SpellVisualKitID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "GlyphProperties",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SpellID", "Type": "int"},
+        {"Name": "GlyphSlotFlags", "Type": "int"},
+        {"Name": "SpellIconID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "GlyphSlot",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Type", "Type": "int"},
+        {"Name": "Tooltip", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "GMSurveyAnswers",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Sort_Index", "Type": "int"},
+        {"Name": "GMSurveyQuestionID", "Type": "int"},
+        {"Name": "Answer_lang", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "GMSurveyCurrentSurvey",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "LANGID", "Type": "int", "IsIndex": true},
+        {"Name": "GMSURVEY_ID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "GMSurveyQuestions",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Question_lang", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "GMSurveySurveys",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Q", "Type": "int", "ArraySize": 15}
+      ]
+    },
+    {
+      "Name": "GMTicketCategory",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Category_lang", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "GroundEffectDoodad",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Doodadpath", "Type": "string"},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "Animscale", "Type": "float"}
+      ]
+    },
+    {
+      "Name": "GroundEffectTexture",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "DoodadID", "Type": "int", "ArraySize": 4},
+        {"Name": "DoodadWeight", "Type": "", "ArraySize": 4},
+        {"Name": "Density", "Type": ""},
+        {"Name": "Sound", "Type": ""}
+      ]
+    },
+    {
+      "Name": "gtBarberShopCostBase",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Data", "Type": ""}
+      ]
+    },
+    {
+      "Name": "gtBattlePetTypeDamageMod",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Data", "Type": ""}
+      ]
+    },
+    {
+      "Name": "gtBattlePetXP",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Data", "Type": ""}
+      ]
+    },
+    {
+      "Name": "gtChanceToMeleeCritBase",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Data", "Type": ""}
+      ]
+    },
+    {
+      "Name": "gtChanceToMeleeCrit",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Data", "Type": ""}
+      ]
+    },
+    {
+      "Name": "gtChanceToSpellCritBase",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Data", "Type": ""}
+      ]
+    },
+    {
+      "Name": "gtChanceToSpellCrit",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Data", "Type": ""}
+      ]
+    },
+    {
+      "Name": "gtCombatRatings",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Data", "Type": ""}
+      ]
+    },
+    {
+      "Name": "gtItemSocketCostPerLevel",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Data", "Type": ""}
+      ]
+    },
+    {
+      "Name": "gtNPCManaCostScaler",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Data", "Type": ""}
+      ]
+    },
+    {
+      "Name": "gtOCTBaseHPByClass",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Data", "Type": ""}
+      ]
+    },
+    {
+      "Name": "gtOCTBaseMPByClass",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Data", "Type": ""}
+      ]
+    },
+    {
+      "Name": "gtOCTClassCombatRatingScalar",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Data", "Type": ""}
+      ]
+    },
+    {
+      "Name": "gtOCTHpPerStamina",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Data", "Type": ""}
+      ]
+    },
+    {
+      "Name": "gtRegenMPPerSpt",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Data", "Type": ""}
+      ]
+    },
+    {
+      "Name": "gtResilienceDR",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Data", "Type": ""}
+      ]
+    },
+    {
+      "Name": "gtSpellScaling",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Data", "Type": ""}
+      ]
+    },
+    {
+      "Name": "GuildColorBackground",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ColorID", "Type": "", "IsIndex": true},
+        {"Name": "Red", "Type": ""},
+        {"Name": "Green", "Type": ""},
+        {"Name": "Blue", "Type": ""},
+        {"Name": "Padding_6_0_1_18179_004", "Type": ""}
+      ]
+    },
+    {
+      "Name": "GuildColorBorder",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ColorID", "Type": "", "IsIndex": true},
+        {"Name": "Red", "Type": ""},
+        {"Name": "Green", "Type": ""},
+        {"Name": "Blue", "Type": ""},
+        {"Name": "Padding_6_0_1_18179_004", "Type": ""}
+      ]
+    },
+    {
+      "Name": "GuildColorEmblem",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ColorID", "Type": "", "IsIndex": true},
+        {"Name": "Red", "Type": ""},
+        {"Name": "Green", "Type": ""},
+        {"Name": "Blue", "Type": ""},
+        {"Name": "Padding_6_0_1_18179_004", "Type": ""}
+      ]
+    },
+    {
+      "Name": "GuildPerkSpells",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "GuildLevel", "Type": "int"},
+        {"Name": "SpellID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "HelmetAnimScaling",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "HelmetGeosetVisDataID", "Type": "int"},
+        {"Name": "RaceID", "Type": "int"},
+        {"Name": "Amount", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "HelmetGeosetVisData",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "HideGeoset", "Type": "int", "ArraySize": 7}
+      ]
+    },
+    {
+      "Name": "HolidayDescriptions",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Description_lang", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "HolidayNames",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name_lang", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "Holidays",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Duration", "Type": "int", "ArraySize": 10},
+        {"Name": "Date", "Type": "int", "ArraySize": 26},
+        {"Name": "Region", "Type": "int"},
+        {"Name": "Looping", "Type": "string"},
+        {"Name": "CalendarFlags", "Type": "int", "ArraySize": 10},
+        {"Name": "HolidayNameID", "Type": "int"},
+        {"Name": "HolidayDescriptionID", "Type": "int"},
+        {"Name": "TextureFileName", "Type": "string"},
+        {"Name": "Priority", "Type": "int"},
+        {"Name": "CalendarFilterType", "Type": "int"},
+        {"Name": "Flags", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "ImportPriceArmor",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ClothModifier", "Type": "int"},
+        {"Name": "LeatherModifier", "Type": "int"},
+        {"Name": "ChainModifier", "Type": "int"},
+        {"Name": "PlateModifier", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ImportPriceQuality",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Data", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ImportPriceShield",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Data", "Type": "float"}
+      ]
+    },
+    {
+      "Name": "ImportPriceWeapon",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Data", "Type": "float"}
+      ]
+    },
+    {
+      "Name": "ItemArmorQuality",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Qualitymod", "Type": "float", "ArraySize": 7},
+        {"Name": "ItemLevel", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ItemArmorShield",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ItemLevel", "Type": "int"},
+        {"Name": "Quality", "Type": "float", "ArraySize": 7}
+      ]
+    },
+    {
+      "Name": "ItemArmorTotal",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ItemLevel", "Type": "int"},
+        {"Name": "Cloth", "Type": "float"},
+        {"Name": "Leather", "Type": "float"},
+        {"Name": "Mail", "Type": "float"},
+        {"Name": "Plate", "Type": "float"}
+      ]
+    },
+    {
+      "Name": "ItemBagFamily",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name_lang", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "ItemClass",
+      "Extension": "dbc",
+      "Fields": [
+      ]
+    },
+    {
+      "Name": "ItemCurrencyCost",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ItemID", "Type": ""}
+      ]
+    },
+    {
+      "Name": "ItemDamageAmmo",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Quality", "Type": "float", "ArraySize": 7},
+        {"Name": "ItemLevel", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ItemDamageOneHandCaster",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Quality", "Type": "int", "ArraySize": 7},
+        {"Name": "ItemLevel", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ItemDamageOneHand",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Quality", "Type": "int", "ArraySize": 7},
+        {"Name": "ItemLevel", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ItemDamageRanged",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Quality", "Type": "int", "ArraySize": 7},
+        {"Name": "ItemLevel", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ItemDamageThrown",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Quality", "Type": "int", "ArraySize": 7},
+        {"Name": "ItemLevel", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ItemDamageTwoHandCaster",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Quality", "Type": "int", "ArraySize": 7},
+        {"Name": "ItemLevel", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ItemDamageTwoHand",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Quality", "Type": "int", "ArraySize": 7},
+        {"Name": "ItemLevel", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ItemDamageWand",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Quality", "Type": "int", "ArraySize": 7},
+        {"Name": "ItemLevel", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "Item",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ClassID", "Type": "int"},
+        {"Name": "SubclassID", "Type": "int"},
+        {"Name": "Sound_override_subclassID", "Type": "int"},
+        {"Name": "Material", "Type": "int"},
+        {"Name": "DisplayInfoID", "Type": "int"},
+        {"Name": "InventoryType", "Type": "int"},
+        {"Name": "SheatheType", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ItemDisenchantLoot",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Class", "Type": "int"},
+        {"Name": "Subclass", "Type": "int"},
+        {"Name": "Quality", "Type": "int"},
+        {"Name": "MinLevel", "Type": "int"},
+        {"Name": "MaxLevel", "Type": "int"},
+        {"Name": "SkillRequired", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ItemDisplayInfo",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ModelName", "Type": "string", "ArraySize": 2},
+        {"Name": "ModelTexture", "Type": "string", "ArraySize": 2},
+        {"Name": "InventoryIcon", "Type": "int", "ArraySize": 2},
+        {"Name": "GeosetGroup", "Type": "int", "ArraySize": 3},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "SpellVisualID", "Type": "int"},
+        {"Name": "GroupSoundIndex", "Type": ""},
+        {"Name": "HelmetGeosetVisID", "Type": "", "ArraySize": 2},
+        {"Name": "Texture", "Type": "", "ArraySize": 9},
+        {"Name": "ItemVisual", "Type": ""},
+        {"Name": "ParticleColorID", "Type": ""}
+      ]
+    },
+    {
+      "Name": "ItemExtendedCost",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "HonorPoints", "Type": "int"},
+        {"Name": "RequiredArenaRating", "Type": "int"},
+        {"Name": "ArenaBracket", "Type": "int"},
+        {"Name": "ItemID", "Type": "int", "ArraySize": 5},
+        {"Name": "ItemCount", "Type": "int", "ArraySize": 5},
+        {"Name": "ArenaPoints", "Type": "int"},
+        {"Name": "ItemPurchaseGroup", "Type": ""},
+        {"Name": "CurrencyID", "Type": "", "ArraySize": 5},
+        {"Name": "CurrencyCount", "Type": "", "ArraySize": 5},
+        {"Name": "MinFactionID", "Type": ""},
+        {"Name": "MinReputation", "Type": ""},
+        {"Name": "Flags", "Type": ""},
+        {"Name": "RequiredGuildLevel", "Type": ""},
+        {"Name": "RequiredAchievement", "Type": ""}
+      ]
+    },
+    {
+      "Name": "ItemGroupSounds",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Sound", "Type": "int", "ArraySize": 4}
+      ]
+    },
+    {
+      "Name": "ItemLimitCategory",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name_lang", "Type": "string"},
+        {"Name": "Quantity", "Type": "int"},
+        {"Name": "Flags", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "ItemNameDescription",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Description_lang", "Type": "string"},
+        {"Name": "Color", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ItemPetFood",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name_lang", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "ItemPriceBase",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ItemLevel", "Type": "int"},
+        {"Name": "Armor", "Type": "int"},
+        {"Name": "Weapon", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ItemPurchaseGroup",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ItemID", "Type": "int", "ArraySize": 8},
+        {"Name": "Name_lang", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "ItemRandomProperties",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name", "Type": "string"},
+        {"Name": "Enchantment", "Type": "int", "ArraySize": 5},
+        {"Name": "Name_lang", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "ItemRandomSuffix",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name_lang", "Type": "string"},
+        {"Name": "InternalName", "Type": "string"},
+        {"Name": "Enchantment", "Type": "int", "ArraySize": 5},
+        {"Name": "AllocationPct", "Type": "int", "ArraySize": 5}
+      ]
+    },
+    {
+      "Name": "ItemReforge",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Source_stat", "Type": "int"},
+        {"Name": "Source_multiplier", "Type": "float"},
+        {"Name": "Target_stat", "Type": "int"},
+        {"Name": "Target_multiplier", "Type": "float"}
+      ]
+    },
+    {
+      "Name": "Item-sparse",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Quality", "Type": ""},
+        {"Name": "Flags", "Type": "", "ArraySize": 3},
+        {"Name": "PriceRandomValue", "Type": ""},
+        {"Name": "PriceVariance", "Type": ""},
+        {"Name": "BuyCount", "Type": ""},
+        {"Name": "BuyPrice", "Type": ""},
+        {"Name": "SellPrice", "Type": ""},
+        {"Name": "InventoryType", "Type": ""},
+        {"Name": "AllowableClass", "Type": ""},
+        {"Name": "AllowableRace", "Type": ""},
+        {"Name": "ItemLevel", "Type": ""},
+        {"Name": "RequiredLevel", "Type": ""},
+        {"Name": "RequiredSkill", "Type": ""},
+        {"Name": "RequiredSkillRank", "Type": ""},
+        {"Name": "RequiredSpell", "Type": ""},
+        {"Name": "RequiredHonorRank", "Type": ""},
+        {"Name": "RequiredCityRank", "Type": ""},
+        {"Name": "RequiredReputationFaction", "Type": ""},
+        {"Name": "RequiredReputationRank", "Type": ""},
+        {"Name": "MaxCount", "Type": ""},
+        {"Name": "Stackable", "Type": ""},
+        {"Name": "ContainerSlots", "Type": ""},
+        {"Name": "ItemStatType", "Type": "", "ArraySize": 10},
+        {"Name": "ItemStatValue", "Type": "", "ArraySize": 10},
+        {"Name": "ItemScalingValue", "Type": "", "ArraySize": 10},
+        {"Name": "ItemSocketCostRate", "Type": "", "ArraySize": 10},
+        {"Name": "ScalingStatDistributionID", "Type": ""},
+        {"Name": "DamageType", "Type": ""},
+        {"Name": "Delay", "Type": ""},
+        {"Name": "RangedModRange", "Type": ""},
+        {"Name": "SpellID", "Type": "", "ArraySize": 5},
+        {"Name": "SpellTrigger", "Type": "", "ArraySize": 5},
+        {"Name": "SpellCharges", "Type": "", "ArraySize": 5},
+        {"Name": "SpellCooldown", "Type": "", "ArraySize": 5},
+        {"Name": "SpellCategory", "Type": "", "ArraySize": 5},
+        {"Name": "SpellCategoryCooldown", "Type": "", "ArraySize": 5},
+        {"Name": "Bonding", "Type": ""},
+        {"Name": "Display_lang", "Type": ""},
+        {"Name": "Display1_lang", "Type": ""},
+        {"Name": "Display2_lang", "Type": ""},
+        {"Name": "Display3_lang", "Type": ""},
+        {"Name": "Description_lang", "Type": ""},
+        {"Name": "PageText", "Type": ""},
+        {"Name": "LanguageID", "Type": ""},
+        {"Name": "PageMaterialID", "Type": ""},
+        {"Name": "StartQuest", "Type": ""},
+        {"Name": "LockID", "Type": ""},
+        {"Name": "Material", "Type": ""},
+        {"Name": "Sheath", "Type": ""},
+        {"Name": "RandomProperty", "Type": ""},
+        {"Name": "RandomSuffix", "Type": ""},
+        {"Name": "ItemSet", "Type": ""},
+        {"Name": "Area", "Type": ""},
+        {"Name": "Map", "Type": ""},
+        {"Name": "BagFamily", "Type": ""},
+        {"Name": "TotemCategory", "Type": ""},
+        {"Name": "Color", "Type": "", "ArraySize": 3},
+        {"Name": "Content", "Type": "", "ArraySize": 3},
+        {"Name": "SocketBonus", "Type": ""},
+        {"Name": "GemProperties", "Type": ""},
+        {"Name": "ArmorDamageModifier", "Type": ""},
+        {"Name": "Duration", "Type": ""},
+        {"Name": "ItemLimitCategory", "Type": ""},
+        {"Name": "HolidayID", "Type": ""},
+        {"Name": "DmgVariance", "Type": ""},
+        {"Name": "CurrencySubstitutionID", "Type": ""},
+        {"Name": "CurrencySubstitutionCount", "Type": ""}
+      ]
+    },
+    {
+      "Name": "ItemSpec",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "MinLevel", "Type": "int"},
+        {"Name": "MaxLevel", "Type": "int"},
+        {"Name": "ItemType", "Type": "int"},
+        {"Name": "PrimaryStat", "Type": "int"},
+        {"Name": "SecondaryStat", "Type": "int"},
+        {"Name": "SpecializationID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ItemSpecOverride",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ItemID", "Type": "int"},
+        {"Name": "SpecID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ItemSubClass",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ClassID", "Type": "int"},
+        {"Name": "SubClassID", "Type": "int"},
+        {"Name": "PrerequisiteProficiency", "Type": "int"},
+        {"Name": "PostrequisiteProficiency", "Type": "int"},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "DisplayFlags", "Type": "int"},
+        {"Name": "WeaponParrySeq", "Type": "int"},
+        {"Name": "WeaponReadySeq", "Type": "int"},
+        {"Name": "WeaponAttackSeq", "Type": "int"},
+        {"Name": "WeaponSwingSize", "Type": "int"},
+        {"Name": "DisplayName_lang", "Type": "string"},
+        {"Name": "VerboseName_lang", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "ItemSubClassMask",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ClassID", "Type": "int"},
+        {"Name": "Mask", "Type": "int"},
+        {"Name": "Name_lang", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "ItemToBattlePet",
+      "Extension": "db2",
+      "Fields": [
+      ]
+    },
+    {
+      "Name": "ItemToMountSpell",
+      "Extension": "db2",
+      "Fields": [
+      ]
+    },
+    {
+      "Name": "ItemUpgrade",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ItemUpgradePathID", "Type": ""},
+        {"Name": "ItemLevelIncrement", "Type": ""},
+        {"Name": "PrerequisiteID", "Type": ""},
+        {"Name": "CurrencyType", "Type": ""},
+        {"Name": "CurrencyAmount", "Type": ""}
+      ]
+    },
+    {
+      "Name": "ItemUpgradePath",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true}
+      ]
+    },
+    {
+      "Name": "ItemVisualEffects",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Model", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "ItemVisuals",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Slot", "Type": "", "ArraySize": 5}
+      ]
+    },
+    {
+      "Name": "JournalEncounterCreature",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "JournalEncounterID", "Type": ""},
+        {"Name": "CreatureDisplayInfoID", "Type": ""},
+        {"Name": "OrderIndex", "Type": ""},
+        {"Name": "FileDataID", "Type": ""},
+        {"Name": "Name_lang", "Type": ""},
+        {"Name": "Description_lang", "Type": ""}
+      ]
+    },
+    {
+      "Name": "JournalEncounter",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "DungeonMapID", "Type": "int"},
+        {"Name": "WorldMapAreaID", "Type": "int"},
+        {"Name": "Map", "Type": "float", "ArraySize": 2},
+        {"Name": "FirstSectionID", "Type": "int"},
+        {"Name": "JournalInstanceID", "Type": "int"},
+        {"Name": "OrderIndex", "Type": "int"},
+        {"Name": "DifficultyMask", "Type": "int"},
+        {"Name": "Name_lang", "Type": "string"},
+        {"Name": "Description_lang", "Type": "string"},
+        {"Name": "Flags", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "JournalEncounterItem",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "JournalEncounterID", "Type": ""},
+        {"Name": "ItemID", "Type": ""},
+        {"Name": "DifficultyMask", "Type": ""},
+        {"Name": "FactionMask", "Type": ""},
+        {"Name": "Flags", "Type": ""}
+      ]
+    },
+    {
+      "Name": "JournalEncounterSection",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "JournalEncounterID", "Type": ""},
+        {"Name": "NextSiblingSectionID", "Type": ""},
+        {"Name": "FirstChildSectionID", "Type": ""},
+        {"Name": "ParentSectionID", "Type": ""},
+        {"Name": "OrderIndex", "Type": ""},
+        {"Name": "Type", "Type": ""},
+        {"Name": "Flags", "Type": ""},
+        {"Name": "IconFlags", "Type": ""},
+        {"Name": "Title_lang", "Type": ""},
+        {"Name": "BodyText_lang", "Type": ""},
+        {"Name": "DifficultyMask", "Type": ""},
+        {"Name": "IconCreatureDisplayInfoID", "Type": ""},
+        {"Name": "IconFileDataID", "Type": ""}
+      ]
+    },
+    {
+      "Name": "JournalEncounterXDifficulty",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "JournalEncounterID", "Type": "int"},
+        {"Name": "DifficultyID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "JournalInstance",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "MapID", "Type": "int"},
+        {"Name": "AreaID", "Type": "int"},
+        {"Name": "ButtonFileDataID", "Type": "int"},
+        {"Name": "BackgroundFileDataID", "Type": "int"},
+        {"Name": "LoreFileDataID", "Type": "int"},
+        {"Name": "Name_lang", "Type": "string"},
+        {"Name": "Description_lang", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "JournalItemXDifficulty",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "JournalEncounterItemID", "Type": ""},
+        {"Name": "DifficultyID", "Type": ""}
+      ]
+    },
+    {
+      "Name": "JournalSectionXDifficulty",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "JournalEncounterSectionID", "Type": ""},
+        {"Name": "DifficultyID", "Type": ""}
+      ]
+    },
+    {
+      "Name": "JournalTier",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name_lang", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "JournalTierXInstance",
+      "Extension": "dbc",
+      "Fields": [
+      ]
+    },
+    {
+      "Name": "Keychain",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Key", "Type": "", "ArraySize": 32}
+      ]
+    },
+    {
+      "Name": "Languages",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name_lang", "Type": ""}
+      ]
+    },
+    {
+      "Name": "LanguageWords",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "LanguageID", "Type": ""},
+        {"Name": "Word", "Type": ""}
+      ]
+    },
+    {
+      "Name": "LFGDungeonExpansion",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Lfg_ID", "Type": ""},
+        {"Name": "Expansion_level", "Type": ""},
+        {"Name": "Random_ID", "Type": ""},
+        {"Name": "Hard_level_min", "Type": ""},
+        {"Name": "Hard_level_max", "Type": ""},
+        {"Name": "Target_level_min", "Type": ""},
+        {"Name": "Target_level_max", "Type": ""}
+      ]
+    },
+    {
+      "Name": "LFGDungeonGroup",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name_lang", "Type": ""},
+        {"Name": "Order_index", "Type": ""},
+        {"Name": "Parent_group_ID", "Type": ""},
+        {"Name": "TypeID", "Type": ""}
+      ]
+    },
+    {
+      "Name": "LFGDungeons",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name_lang", "Type": ""},
+        {"Name": "MinLevel", "Type": ""},
+        {"Name": "MaxLevel", "Type": ""},
+        {"Name": "Target_level", "Type": ""},
+        {"Name": "Target_level_min", "Type": ""},
+        {"Name": "Target_level_max", "Type": ""},
+        {"Name": "MapID", "Type": ""},
+        {"Name": "DifficultyID", "Type": ""},
+        {"Name": "Flags", "Type": ""},
+        {"Name": "TypeID", "Type": ""},
+        {"Name": "Faction", "Type": ""},
+        {"Name": "TextureFilename", "Type": ""},
+        {"Name": "ExpansionLevel", "Type": ""},
+        {"Name": "Order_index", "Type": ""},
+        {"Name": "Group_ID", "Type": ""},
+        {"Name": "Description_lang", "Type": ""},
+        {"Name": "Random_ID", "Type": ""},
+        {"Name": "Count_tank", "Type": ""},
+        {"Name": "Count_healer", "Type": ""},
+        {"Name": "Count_damage", "Type": ""},
+        {"Name": "Min_count_tank", "Type": ""},
+        {"Name": "Min_count_healer", "Type": ""},
+        {"Name": "Min_count_damage", "Type": ""},
+        {"Name": "ScenarioID", "Type": ""},
+        {"Name": "Subtype", "Type": ""},
+        {"Name": "Bonus_reputation_amount", "Type": ""},
+        {"Name": "MentorCharLevel", "Type": ""},
+        {"Name": "MentorItemLevel", "Type": ""}
+      ]
+    },
+    {
+      "Name": "LfgDungeonsGroupingMap",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "LfgDungeonsID", "Type": ""},
+        {"Name": "Random_lfgDungeonsID", "Type": ""},
+        {"Name": "Group_ID", "Type": ""}
+      ]
+    },
+    {
+      "Name": "LightData",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "LightParamID", "Type": "int"},
+        {"Name": "Time", "Type": "int"},
+        {"Name": "DirectColor", "Type": "int"},
+        {"Name": "AmbientColor", "Type": "int"},
+        {"Name": "SkyTopColor", "Type": "int"},
+        {"Name": "SkyMiddleColor", "Type": "int"},
+        {"Name": "SkyBand1Color", "Type": "int"},
+        {"Name": "SkyBand2Color", "Type": "int"},
+        {"Name": "SkySmogColor", "Type": "int"},
+        {"Name": "SkyFogColor", "Type": "int"},
+        {"Name": "SunColor", "Type": "int"},
+        {"Name": "CloudSunColor", "Type": "int"},
+        {"Name": "CloudEmissiveColor", "Type": "int"},
+        {"Name": "CloudLayer1AmbientColor", "Type": "int"},
+        {"Name": "CloudLayer2AmbientColor", "Type": "int"},
+        {"Name": "OceanCloseColor", "Type": "int"},
+        {"Name": "OceanFarColor", "Type": "int"},
+        {"Name": "RiverCloseColor", "Type": "int"},
+        {"Name": "RiverFarColor", "Type": "int"},
+        {"Name": "ShadowOpacity", "Type": "int"},
+        {"Name": "FogEnd", "Type": "float"},
+        {"Name": "FogScaler", "Type": "float"},
+        {"Name": "CloudDensity", "Type": "float"}
+      ]
+    },
+    {
+      "Name": "Light",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ContinentID", "Type": ""},
+        {"Name": "GameCoords", "Type": "", "ArraySize": 3},
+        {"Name": "GameFalloffStart", "Type": ""},
+        {"Name": "GameFalloffEnd", "Type": ""},
+        {"Name": "LightParamsID", "Type": "", "ArraySize": 8}
+      ]
+    },
+    {
+      "Name": "LightParams",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "HighlightSky", "Type": ""},
+        {"Name": "LightSkyboxID", "Type": ""},
+        {"Name": "CloudTypeID", "Type": ""},
+        {"Name": "Glow", "Type": ""},
+        {"Name": "WaterShallowAlpha", "Type": ""},
+        {"Name": "WaterDeepAlpha", "Type": ""},
+        {"Name": "OceanShallowAlpha", "Type": ""},
+        {"Name": "OceanDeepAlpha", "Type": ""},
+        {"Name": "Flags", "Type": ""}
+      ]
+    },
+    {
+      "Name": "LightSkybox",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name", "Type": "string"},
+        {"Name": "Flags", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "LiquidMaterial",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "LVF", "Type": ""},
+        {"Name": "Flags", "Type": ""}
+      ]
+    },
+    {
+      "Name": "LiquidObject",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "FlowDirection", "Type": ""},
+        {"Name": "FlowSpeed", "Type": ""},
+        {"Name": "LiquidTypeID", "Type": ""},
+        {"Name": "Fishable", "Type": ""},
+        {"Name": "Reflection", "Type": ""}
+      ]
+    },
+    {
+      "Name": "LiquidType",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name", "Type": "string"},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "SoundBank", "Type": "int"},
+        {"Name": "SoundID", "Type": "int"},
+        {"Name": "SpellID", "Type": "int"},
+        {"Name": "MaxDarkenDepth", "Type": "int"},
+        {"Name": "FogDarkenIntensity", "Type": "int"},
+        {"Name": "AmbDarkenIntensity", "Type": "int"},
+        {"Name": "DirDarkenIntensity", "Type": "int"},
+        {"Name": "LightID", "Type": "int"},
+        {"Name": "ParticleScale", "Type": "int"},
+        {"Name": "ParticleMovement", "Type": "int"},
+        {"Name": "ParticleTexSlots", "Type": "int"},
+        {"Name": "MaterialID", "Type": "int"},
+        {"Name": "Texture", "Type": "int", "ArraySize": 6},
+        {"Name": "Color", "Type": "int", "ArraySize": 2},
+        {"Name": "Float", "Type": "int", "ArraySize": 18},
+        {"Name": "Int", "Type": "int", "ArraySize": 4}
+      ]
+    },
+    {
+      "Name": "LoadingScreens",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name", "Type": "string"},
+        {"Name": "FileName", "Type": "string"},
+        {"Name": "HasWideScreen", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "LoadingScreenTaxiSplines",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "PathID", "Type": ""},
+        {"Name": "Locx", "Type": "", "ArraySize": 10},
+        {"Name": "Locy", "Type": "", "ArraySize": 10},
+        {"Name": "LegIndex", "Type": ""},
+        {"Name": "LoadingScreenID", "Type": ""}
+      ]
+    },
+    {
+      "Name": "Locale",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Field_5_0_2_15827_001", "Type": ""},
+        {"Name": "WowLocale", "Type": ""},
+        {"Name": "Secondary", "Type": ""},
+        {"Name": "FontFileDataID", "Type": ""},
+        {"Name": "ClientDisplayExpansion", "Type": ""}
+      ]
+    },
+    {
+      "Name": "Location",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Pos", "Type": "", "ArraySize": 3},
+        {"Name": "Rot", "Type": "", "ArraySize": 3}
+      ]
+    },
+    {
+      "Name": "Lock",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Type", "Type": "", "ArraySize": 8},
+        {"Name": "Index", "Type": "", "ArraySize": 8},
+        {"Name": "Skill", "Type": "", "ArraySize": 8},
+        {"Name": "Action", "Type": "", "ArraySize": 8}
+      ]
+    },
+    {
+      "Name": "LockType",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name_lang", "Type": ""},
+        {"Name": "ResourceName_lang", "Type": ""},
+        {"Name": "Verb_lang", "Type": ""},
+        {"Name": "CursorName", "Type": ""}
+      ]
+    },
+    {
+      "Name": "MailTemplate",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Subject_lang", "Type": ""},
+        {"Name": "Body_lang", "Type": ""}
+      ]
+    },
+    {
+      "Name": "MapChallengeMode",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "MapID", "Type": "int"},
+        {"Name": "Field_5_0_1_15464_002", "Type": "int"},
+        {"Name": "Field_5_0_1_15464_003", "Type": "int"},
+        {"Name": "Field_5_0_1_15464_004", "Type": "int"},
+        {"Name": "CriteriaCount", "Type": "int", "ArraySize": 5}
+      ]
+    },
+    {
+      "Name": "Map",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Directory", "Type": "string"},
+        {"Name": "InstanceType", "Type": "int"},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "MapType", "Type": "int"},
+        {"Name": "MapName_lang", "Type": "string"},
+        {"Name": "AreaTableID", "Type": "int"},
+        {"Name": "MapDescription0_lang", "Type": "string"},
+        {"Name": "MapDescription1_lang", "Type": "string"},
+        {"Name": "LoadingScreenID", "Type": "int"},
+        {"Name": "MinimapIconScale", "Type": "float"},
+        {"Name": "CorpseMapID", "Type": "int"},
+        {"Name": "Corpse", "Type": "float", "ArraySize": 2},
+        {"Name": "TimeOfDayOverride", "Type": "int"},
+        {"Name": "ExpansionID", "Type": "int"},
+        {"Name": "RaidOffset", "Type": "int"},
+        {"Name": "MaxPlayers", "Type": "int"},
+        {"Name": "ParentMapID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "MapDifficulty",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "MapID", "Type": "int"},
+        {"Name": "DifficultyID", "Type": "int"},
+        {"Name": "Message_lang", "Type": "string"},
+        {"Name": "RaidDuration", "Type": "int"},
+        {"Name": "MaxPlayers", "Type": "int"},
+        {"Name": "LockID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "MarketingPromotionsXLocale",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "PromotionID", "Type": ""},
+        {"Name": "LocaleID", "Type": ""},
+        {"Name": "AdTexture", "Type": ""},
+        {"Name": "LogoTexture", "Type": ""},
+        {"Name": "AcceptButtonTexture", "Type": ""},
+        {"Name": "DeclineButtonTexture", "Type": ""},
+        {"Name": "AcceptURL", "Type": ""}
+      ]
+    },
+    {
+      "Name": "Material",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Flags", "Type": ""},
+        {"Name": "FoleySoundID", "Type": ""},
+        {"Name": "SheatheSoundID", "Type": ""},
+        {"Name": "UnsheatheSoundID", "Type": ""}
+      ]
+    },
+    {
+      "Name": "ModifierTree",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Type", "Type": ""},
+        {"Name": "Asset", "Type": ""},
+        {"Name": "SecondaryAsset", "Type": ""},
+        {"Name": "Operator", "Type": ""},
+        {"Name": "Amount", "Type": ""},
+        {"Name": "Parent", "Type": ""}
+      ]
+    },
+    {
+      "Name": "MountCapability",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Flags", "Type": ""},
+        {"Name": "ReqRidingSkill", "Type": ""},
+        {"Name": "ReqAreaID", "Type": ""},
+        {"Name": "ReqSpellAuraID", "Type": ""},
+        {"Name": "ReqSpellKnownID", "Type": ""},
+        {"Name": "ModSpellAuraID", "Type": ""},
+        {"Name": "ReqMapID", "Type": ""}
+      ]
+    },
+    {
+      "Name": "MountType",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Capability", "Type": "", "ArraySize": 24}
+      ]
+    },
+    {
+      "Name": "Movie",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Volume", "Type": "int"},
+        {"Name": "KeyID", "Type": "int"},
+        {"Name": "AudioFileDataID", "Type": "int"},
+        {"Name": "SubtitleFileDataID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "MovieFileData",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "FileDataID", "Type": "int", "IsIndex": true},
+        {"Name": "Resolution", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "MovieOverlays",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "MovieID", "Type": "int"},
+        {"Name": "LocaleMask", "Type": "int"},
+        {"Name": "OverlayRangeBegin", "Type": "int"},
+        {"Name": "OverlayRangeEnd", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "MovieVariation",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "MovieID", "Type": ""},
+        {"Name": "FileDataID", "Type": ""},
+        {"Name": "OverlayFileDataID", "Type": ""}
+      ]
+    },
+    {
+      "Name": "NameGen",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name", "Type": ""},
+        {"Name": "RaceID", "Type": ""},
+        {"Name": "Sex", "Type": ""}
+      ]
+    },
+    {
+      "Name": "NamesProfanity",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name", "Type": ""},
+        {"Name": "Language", "Type": ""}
+      ]
+    },
+    {
+      "Name": "NamesReserved",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name", "Type": ""}
+      ]
+    },
+    {
+      "Name": "NamesReservedLocale",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name", "Type": ""},
+        {"Name": "LocaleMask", "Type": ""}
+      ]
+    },
+    {
+      "Name": "NPCSounds",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SoundID", "Type": "", "ArraySize": 4}
+      ]
+    },
+    {
+      "Name": "ObjectEffect",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name", "Type": "string"},
+        {"Name": "ObjectEffectGroupID", "Type": "int"},
+        {"Name": "TriggerType", "Type": "int"},
+        {"Name": "EventType", "Type": "int"},
+        {"Name": "EffectRecType", "Type": "int"},
+        {"Name": "EffectRecID", "Type": "int"},
+        {"Name": "Attachment", "Type": "int"},
+        {"Name": "Offset", "Type": "int", "ArraySize": 3},
+        {"Name": "ObjectEffectModifierID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ObjectEffectGroup",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name", "Type": ""}
+      ]
+    },
+    {
+      "Name": "ObjectEffectModifier",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "InputType", "Type": ""},
+        {"Name": "MapType", "Type": ""},
+        {"Name": "OutputType", "Type": ""},
+        {"Name": "Param", "Type": "", "ArraySize": 4}
+      ]
+    },
+    {
+      "Name": "ObjectEffectPackage",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name", "Type": ""}
+      ]
+    },
+    {
+      "Name": "ObjectEffectPackageElem",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ObjectEffectPackageID", "Type": ""},
+        {"Name": "ObjectEffectGroupID", "Type": ""},
+        {"Name": "StateType", "Type": ""}
+      ]
+    },
+    {
+      "Name": "OverrideSpellData",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Spells", "Type": "", "ArraySize": 10},
+        {"Name": "Flags", "Type": ""},
+        {"Name": "PlayerActionbarFileDataID", "Type": ""}
+      ]
+    },
+    {
+      "Name": "Package",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Icon", "Type": ""},
+        {"Name": "Cost", "Type": ""},
+        {"Name": "Name_lang", "Type": ""}
+      ]
+    },
+    {
+      "Name": "PageTextMaterial",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name", "Type": ""}
+      ]
+    },
+    {
+      "Name": "PaperDollItemFrame",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ItemButtonName", "Type": "string"},
+        {"Name": "SlotIcon", "Type": "string"},
+        {"Name": "SlotNumber", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ParticleColor",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Start", "Type": "", "ArraySize": 3},
+        {"Name": "MID", "Type": "", "ArraySize": 3},
+        {"Name": "End", "Type": "", "ArraySize": 3}
+      ]
+    },
+    {
+      "Name": "Path",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Type", "Type": ""},
+        {"Name": "SplineType", "Type": ""},
+        {"Name": "Red", "Type": ""},
+        {"Name": "Blue", "Type": ""},
+        {"Name": "Green", "Type": ""},
+        {"Name": "Alpha", "Type": ""},
+        {"Name": "Flags", "Type": ""}
+      ]
+    },
+    {
+      "Name": "PathNode",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "PathID", "Type": ""},
+        {"Name": "Sequence", "Type": ""},
+        {"Name": "LocationID", "Type": ""}
+      ]
+    },
+    {
+      "Name": "PathNodeProperty",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "PathID", "Type": ""},
+        {"Name": "Sequence", "Type": ""},
+        {"Name": "PropertyIndex", "Type": ""},
+        {"Name": "Value", "Type": ""}
+      ]
+    },
+    {
+      "Name": "PathProperty",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "PathID", "Type": ""},
+        {"Name": "PropertyIndex", "Type": ""},
+        {"Name": "Value", "Type": ""}
+      ]
+    },
+    {
+      "Name": "Phase",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name", "Type": ""},
+        {"Name": "Flags", "Type": ""}
+      ]
+    },
+    {
+      "Name": "PhaseShiftZoneSounds",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "AreaID", "Type": ""},
+        {"Name": "WMOAreaID", "Type": ""},
+        {"Name": "PhaseID", "Type": ""},
+        {"Name": "PhaseGroupID", "Type": ""},
+        {"Name": "PhaseUseFlags", "Type": ""},
+        {"Name": "ZoneIntroMusicID", "Type": ""},
+        {"Name": "ZoneMusicID", "Type": ""},
+        {"Name": "SoundAmbienceID", "Type": ""},
+        {"Name": "SoundProviderPreferencesID", "Type": ""},
+        {"Name": "UWZoneIntroMusicID", "Type": ""},
+        {"Name": "UWZoneMusicID", "Type": ""},
+        {"Name": "UWSoundAmbienceID", "Type": ""},
+        {"Name": "UWSoundProviderPreferencesID", "Type": ""}
+      ]
+    },
+    {
+      "Name": "PhaseXPhaseGroup",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "PhaseID", "Type": ""},
+        {"Name": "PhaseGroupID", "Type": ""}
+      ]
+    },
+    {
+      "Name": "PlayerCondition",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Flags", "Type": ""},
+        {"Name": "MinLevel", "Type": ""},
+        {"Name": "MaxLevel", "Type": ""},
+        {"Name": "RaceMask", "Type": ""},
+        {"Name": "ClassMask", "Type": ""},
+        {"Name": "Gender", "Type": ""},
+        {"Name": "NativeGender", "Type": ""},
+        {"Name": "SkillID", "Type": "", "ArraySize": 4},
+        {"Name": "MinSkill", "Type": "", "ArraySize": 4},
+        {"Name": "MaxSkill", "Type": "", "ArraySize": 4},
+        {"Name": "SkillLogic", "Type": ""},
+        {"Name": "LanguageID", "Type": ""},
+        {"Name": "MinLanguage", "Type": ""},
+        {"Name": "MaxLanguage", "Type": ""},
+        {"Name": "MinFactionID", "Type": "", "ArraySize": 3},
+        {"Name": "MaxFactionID", "Type": ""},
+        {"Name": "MinReputation", "Type": "", "ArraySize": 3},
+        {"Name": "MaxReputation", "Type": ""},
+        {"Name": "ReputationLogic", "Type": ""},
+        {"Name": "MinPVPRank", "Type": ""},
+        {"Name": "MaxPVPRank", "Type": ""},
+        {"Name": "PvpMedal", "Type": ""},
+        {"Name": "PrevQuestLogic", "Type": ""},
+        {"Name": "PrevQuestID", "Type": "", "ArraySize": 4},
+        {"Name": "CurrQuestLogic", "Type": ""},
+        {"Name": "CurrQuestID", "Type": "", "ArraySize": 4},
+        {"Name": "CurrentCompletedQuestLogic", "Type": ""},
+        {"Name": "CurrentCompletedQuestID", "Type": "", "ArraySize": 4},
+        {"Name": "SpellLogic", "Type": ""},
+        {"Name": "SpellID", "Type": "", "ArraySize": 4},
+        {"Name": "ItemLogic", "Type": ""},
+        {"Name": "ItemID", "Type": "", "ArraySize": 4},
+        {"Name": "ItemCount", "Type": "", "ArraySize": 4},
+        {"Name": "ItemFlags", "Type": ""},
+        {"Name": "Explored", "Type": "", "ArraySize": 2},
+        {"Name": "Time", "Type": "", "ArraySize": 2},
+        {"Name": "AuraSpellLogic", "Type": ""},
+        {"Name": "AuraSpellID", "Type": "", "ArraySize": 4},
+        {"Name": "WorldStateExpressionID", "Type": ""},
+        {"Name": "WeatherID", "Type": ""},
+        {"Name": "PartyStatus", "Type": ""},
+        {"Name": "LifetimeMaxPVPRank", "Type": ""},
+        {"Name": "AchievementLogic", "Type": ""},
+        {"Name": "Achievement", "Type": "", "ArraySize": 4},
+        {"Name": "LfgLogic", "Type": ""},
+        {"Name": "LfgStatus", "Type": "", "ArraySize": 4},
+        {"Name": "LfgCompare", "Type": "", "ArraySize": 4},
+        {"Name": "LfgValue", "Type": "", "ArraySize": 4},
+        {"Name": "AreaLogic", "Type": ""},
+        {"Name": "AreaID", "Type": "", "ArraySize": 4},
+        {"Name": "CurrencyLogic", "Type": ""},
+        {"Name": "CurrencyID", "Type": "", "ArraySize": 4},
+        {"Name": "CurrencyCount", "Type": "", "ArraySize": 4},
+        {"Name": "QuestKillID", "Type": ""},
+        {"Name": "QuestKillLogic", "Type": ""},
+        {"Name": "QuestKillMonster", "Type": "", "ArraySize": 4},
+        {"Name": "MinExpansionLevel", "Type": ""},
+        {"Name": "MaxExpansionLevel", "Type": ""},
+        {"Name": "MinExpansionTier", "Type": ""},
+        {"Name": "MaxExpansionTier", "Type": ""},
+        {"Name": "MinGuildLevel", "Type": ""},
+        {"Name": "MaxGuildLevel", "Type": ""},
+        {"Name": "PhaseUseFlags", "Type": ""},
+        {"Name": "PhaseID", "Type": ""},
+        {"Name": "PhaseGroupID", "Type": ""},
+        {"Name": "MinAvgItemLevel", "Type": ""},
+        {"Name": "MaxAvgItemLevel", "Type": ""},
+        {"Name": "MinAvgEquippedItemLevel", "Type": ""},
+        {"Name": "MaxAvgEquippedItemLevel", "Type": ""},
+        {"Name": "ChrSpecializationIndex", "Type": ""},
+        {"Name": "ChrSpecializationRole", "Type": ""},
+        {"Name": "Failure_description_lang", "Type": ""},
+        {"Name": "PowerType", "Type": ""},
+        {"Name": "PowerTypeComp", "Type": ""},
+        {"Name": "PowerTypeValue", "Type": ""}
+      ]
+    },
+    {
+      "Name": "PowerDisplay",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ActualType", "Type": ""},
+        {"Name": "GlobalStringBaseTag", "Type": ""},
+        {"Name": "Red", "Type": ""},
+        {"Name": "Green", "Type": ""},
+        {"Name": "Blue", "Type": ""},
+        {"Name": "Padding_4_0_0_11792_006", "Type": ""}
+      ]
+    },
+    {
+      "Name": "QuestFactionReward",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Difficulty", "Type": "", "ArraySize": 10}
+      ]
+    },
+    {
+      "Name": "QuestFeedbackEffect",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "FileDataID", "Type": ""},
+        {"Name": "AttachPoint", "Type": ""},
+        {"Name": "Minimapobject", "Type": ""},
+        {"Name": "Priority", "Type": ""},
+        {"Name": "Flags", "Type": ""}
+      ]
+    },
+    {
+      "Name": "QuestInfo",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "InfoName_lang", "Type": ""}
+      ]
+    },
+    {
+      "Name": "QuestMoneyReward",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Difficulty", "Type": "", "ArraySize": 10}
+      ]
+    },
+    {
+      "Name": "QuestPackageItem",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "PackageID", "Type": "int"},
+        {"Name": "ItemID", "Type": "int"},
+        {"Name": "ItemQuantity", "Type": "int"},
+        {"Name": "DisplayType", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "QuestPOIBlob",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "NumPoints", "Type": "int"},
+        {"Name": "MapID", "Type": "int"},
+        {"Name": "WorldMapAreaID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "QuestPOIPoint",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "X", "Type": "int"},
+        {"Name": "Y", "Type": "int"},
+        {"Name": "QuestPOIBlobID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "QuestSort",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SortName_lang", "Type": ""}
+      ]
+    },
+    {
+      "Name": "QuestV2",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "UniqueBitFlag", "Type": ""}
+      ]
+    },
+    {
+      "Name": "QuestXP",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Difficulty", "Type": "", "ArraySize": 10}
+      ]
+    },
+    {
+      "Name": "RandPropPoints",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Epic", "Type": "", "ArraySize": 5},
+        {"Name": "Superior", "Type": "", "ArraySize": 5},
+        {"Name": "Good", "Type": "", "ArraySize": 5}
+      ]
+    },
+    {
+      "Name": "ResearchBranch",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name_lang", "Type": "string"},
+        {"Name": "ResearchFieldID", "Type": "int"},
+        {"Name": "CurrencyID", "Type": "int"},
+        {"Name": "Texture", "Type": "string"},
+        {"Name": "ItemID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ResearchField",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name_lang", "Type": "string"},
+        {"Name": "Slot", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ResearchProject",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name_lang", "Type": "string"},
+        {"Name": "Description_lang", "Type": "string"},
+        {"Name": "Rarity", "Type": "int"},
+        {"Name": "ResearchBranchID", "Type": "int"},
+        {"Name": "SpellID", "Type": "int"},
+        {"Name": "NumSockets", "Type": "int"},
+        {"Name": "Texture", "Type": "string"},
+        {"Name": "RequiredWeight", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ResearchSite",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "MapID", "Type": "int"},
+        {"Name": "QuestPOIBlobID", "Type": "int"},
+        {"Name": "Name_lang", "Type": "string"},
+        {"Name": "AreaPOIIconEnum", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "Resistances",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Flags", "Type": ""},
+        {"Name": "FizzleSoundID", "Type": ""},
+        {"Name": "Name_lang", "Type": ""}
+      ]
+    },
+    {
+      "Name": "RulesetItemUpgrade",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Field_6_0_1_18179_001", "Type": "int"},
+        {"Name": "ItemUpgradeID", "Type": "int"},
+        {"Name": "ItemID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "RulesetRaidLootUpgrade",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Field_6_0_1_18179_001", "Type": "int"},
+        {"Name": "Field_6_0_1_18179_002", "Type": "int"},
+        {"Name": "ItemUpgradeID", "Type": "int"},
+        {"Name": "Field_6_0_1_18179_004", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "RulesetRaidOverride",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "MapID", "Type": ""},
+        {"Name": "DifficultyID", "Type": ""},
+        {"Name": "RulesetID", "Type": ""},
+        {"Name": "SharedLock", "Type": ""},
+        {"Name": "Raidduration", "Type": ""},
+        {"Name": "run.sh", "Type": ""}
+      ]
+    },
+    {
+      "Name": "ScalingStatDistribution",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "StatID", "Type": "int", "ArraySize": 10},
+        {"Name": "Bonus", "Type": "int", "ArraySize": 10},
+        {"Name": "Minlevel", "Type": "int"},
+        {"Name": "Maxlevel", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ScalingStatValues",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Charlevel", "Type": "int"},
+        {"Name": "EffectiveLevel", "Type": "int"},
+        {"Name": "Field_5_3_0_16844_003", "Type": "int"},
+        {"Name": "Field_5_3_0_16844_004", "Type": "int"},
+        {"Name": "Field_5_3_0_16844_005", "Type": "int"},
+        {"Name": "Field_5_3_0_16844_006", "Type": "int"},
+        {"Name": "Field_5_3_0_16844_007", "Type": "int"},
+        {"Name": "Field_5_3_0_16844_008", "Type": "int"},
+        {"Name": "Field_5_3_0_16844_009", "Type": "int"},
+        {"Name": "Field_5_3_0_16844_010", "Type": "int"},
+        {"Name": "Field_5_3_0_16844_011", "Type": "int"},
+        {"Name": "Field_5_3_0_16844_012", "Type": "int"},
+        {"Name": "ArmorShoulder", "Type": "int", "ArraySize": 4},
+        {"Name": "ArmorChest", "Type": "int", "ArraySize": 4},
+        {"Name": "ArmorHead", "Type": "int", "ArraySize": 4},
+        {"Name": "ArmorLegs", "Type": "int", "ArraySize": 4},
+        {"Name": "ArmorFeet", "Type": "int", "ArraySize": 4},
+        {"Name": "ArmorWaist", "Type": "int", "ArraySize": 4},
+        {"Name": "ArmorHands", "Type": "int", "ArraySize": 4},
+        {"Name": "ArmorWrists", "Type": "int", "ArraySize": 4},
+        {"Name": "Field_5_3_0_16844_021", "Type": "int"},
+        {"Name": "Field_5_3_0_16844_022", "Type": "int"},
+        {"Name": "Field_5_3_0_16844_023", "Type": "int"},
+        {"Name": "Field_5_3_0_16844_024", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "Scenario",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name_lang", "Type": "string"},
+        {"Name": "Flags", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ScenarioEventEntry",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "TriggerType", "Type": "int"},
+        {"Name": "TriggerAsset", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ScenarioStep",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "CriteriatreeID", "Type": "int"},
+        {"Name": "ScenarioID", "Type": "int"},
+        {"Name": "OrderIndex", "Type": "int"},
+        {"Name": "Description_lang", "Type": "string"},
+        {"Name": "Title_lang", "Type": "string"},
+        {"Name": "Flags", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "SceneScript",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name", "Type": "string"},
+        {"Name": "Script", "Type": "string"},
+        {"Name": "FirstSceneScriptID", "Type": "int"},
+        {"Name": "NextSceneScriptID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "SceneScriptPackage",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "SceneScriptPackageMember",
+      "Extension": "db2",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SceneScriptPackageID", "Type": "int"},
+        {"Name": "SceneScriptID", "Type": "int"},
+        {"Name": "OrderIndex", "Type": "int"},
+        {"Name": "ChildSceneScriptPackageID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ScreenEffect",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name", "Type": ""},
+        {"Name": "Effect", "Type": ""},
+        {"Name": "Param", "Type": "", "ArraySize": 4},
+        {"Name": "LightParamsID", "Type": ""},
+        {"Name": "LightParamsFadeIn", "Type": ""},
+        {"Name": "LightParamsFadeOut", "Type": ""},
+        {"Name": "SoundAmbienceID", "Type": ""},
+        {"Name": "ZoneMusicID", "Type": ""},
+        {"Name": "TimeOfDayOverride", "Type": ""},
+        {"Name": "EffectMask", "Type": ""}
+      ]
+    },
+    {
+      "Name": "ScreenLocation",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name", "Type": ""}
+      ]
+    },
+    {
+      "Name": "ServerMessages",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Text_lang", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SkillLineAbility",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SkillLine", "Type": ""},
+        {"Name": "Spell", "Type": ""},
+        {"Name": "RaceMask", "Type": ""},
+        {"Name": "ClassMask", "Type": ""},
+        {"Name": "MinSkillLineRank", "Type": ""},
+        {"Name": "SupercedesSpell", "Type": ""},
+        {"Name": "AcquireMethod", "Type": ""},
+        {"Name": "TrivialSkillLineRankHigh", "Type": ""},
+        {"Name": "TrivialSkillLineRankLow", "Type": ""},
+        {"Name": "NumSkillUps", "Type": ""},
+        {"Name": "UniqueBit", "Type": ""},
+        {"Name": "TradeSkillCategoryID", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SkillLineAbilitySortedSpell",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Spell", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SkillLine",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "CategoryID", "Type": ""},
+        {"Name": "DisplayName_lang", "Type": ""},
+        {"Name": "Description_lang", "Type": ""},
+        {"Name": "SpellIconID", "Type": ""},
+        {"Name": "AlternateVerb_lang", "Type": ""},
+        {"Name": "CanLink", "Type": ""},
+        {"Name": "ParentSkillLineID", "Type": ""},
+        {"Name": "Flags", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SkillRaceClassInfo",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SkillID", "Type": ""},
+        {"Name": "RaceMask", "Type": ""},
+        {"Name": "ClassMask", "Type": ""},
+        {"Name": "Flags", "Type": ""},
+        {"Name": "Availability", "Type": ""},
+        {"Name": "MinLevel", "Type": ""},
+        {"Name": "SkillTierID", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SkillTiers",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Value", "Type": "", "ArraySize": 16}
+      ]
+    },
+    {
+      "Name": "SoundAmbienceFlavor",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SoundAmbienceID", "Type": ""},
+        {"Name": "SoundEntriesIDDay", "Type": ""},
+        {"Name": "SoundEntriesIDNight", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SoundEmitterPillPoints",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SoundEmittersID", "Type": ""},
+        {"Name": "Position", "Type": "", "ArraySize": 3}
+      ]
+    },
+    {
+      "Name": "SoundEmitters",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Position", "Type": "", "ArraySize": 3},
+        {"Name": "Direction", "Type": "", "ArraySize": 3},
+        {"Name": "SoundEntriesID", "Type": ""},
+        {"Name": "MapID", "Type": ""},
+        {"Name": "Name", "Type": ""},
+        {"Name": "EmitterType", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SoundEntriesAdvanced",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SoundEntryID", "Type": ""},
+        {"Name": "InnerRadius2D", "Type": ""},
+        {"Name": "TimeA", "Type": ""},
+        {"Name": "TimeB", "Type": ""},
+        {"Name": "TimeC", "Type": ""},
+        {"Name": "TimeD", "Type": ""},
+        {"Name": "RandomOffsetRange", "Type": ""},
+        {"Name": "Usage", "Type": ""},
+        {"Name": "TimeIntervalMin", "Type": ""},
+        {"Name": "TimeIntervalMax", "Type": ""},
+        {"Name": "VolumeSliderCategory", "Type": ""},
+        {"Name": "DuckToSFX", "Type": ""},
+        {"Name": "DuckToMusic", "Type": ""},
+        {"Name": "DuckToAmbience", "Type": ""},
+        {"Name": "InnerRadiusOfInfluence", "Type": ""},
+        {"Name": "OuterRadiusOfInfluence", "Type": ""},
+        {"Name": "TimeToDuck", "Type": ""},
+        {"Name": "TimeToUnduck", "Type": ""},
+        {"Name": "InsideAngle", "Type": ""},
+        {"Name": "OutsideAngle", "Type": ""},
+        {"Name": "OutsideVolume", "Type": ""},
+        {"Name": "OuterRadius2D", "Type": ""},
+        {"Name": "MinRandomPosOffset", "Type": ""},
+        {"Name": "MaxRandomPosOffset", "Type": ""},
+        {"Name": "Field_5_1_0_16309_025", "Type": ""},
+        {"Name": "Field_5_1_0_16309_026", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SoundEntries",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SoundType", "Type": "int"},
+        {"Name": "Name", "Type": "string"},
+        {"Name": "FileDataID", "Type": "int", "ArraySize": 10},
+        {"Name": "Freq", "Type": "float", "ArraySize": 10},
+        {"Name": "VolumeFloat", "Type": ""},
+        {"Name": "Flags", "Type": ""},
+        {"Name": "MinDistance", "Type": ""},
+        {"Name": "DistanceCutoff", "Type": ""},
+        {"Name": "EAXDef", "Type": ""},
+        {"Name": "SoundEntriesAdvancedID", "Type": ""},
+        {"Name": "Volumevariationplus", "Type": ""},
+        {"Name": "Volumevariationminus", "Type": ""},
+        {"Name": "Pitchvariationplus", "Type": ""},
+        {"Name": "Pitchvariationminus", "Type": ""},
+        {"Name": "PitchAdjust", "Type": ""},
+        {"Name": "Dialogtype", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SoundEntriesFallbacks",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SoundEntriesID", "Type": ""},
+        {"Name": "FallbackSoundEntriesID", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SoundFilter",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SoundFilterElem",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SoundFilterID", "Type": ""},
+        {"Name": "OrderIndex", "Type": ""},
+        {"Name": "FilterType", "Type": ""},
+        {"Name": "Params", "Type": "", "ArraySize": 9}
+      ]
+    },
+    {
+      "Name": "SoundProviderPreferences",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Description", "Type": ""},
+        {"Name": "Flags", "Type": ""},
+        {"Name": "EAXEnvironmentSelection", "Type": ""},
+        {"Name": "EAXDecayTime", "Type": ""},
+        {"Name": "EAX2EnvironmentSize", "Type": ""},
+        {"Name": "EAX2EnvironmentDiffusion", "Type": ""},
+        {"Name": "EAX2Room", "Type": ""},
+        {"Name": "EAX2RoomHF", "Type": ""},
+        {"Name": "EAX2DecayHFRatio", "Type": ""},
+        {"Name": "EAX2Reflections", "Type": ""},
+        {"Name": "EAX2ReflectionsDelay", "Type": ""},
+        {"Name": "EAX2Reverb", "Type": ""},
+        {"Name": "EAX2ReverbDelay", "Type": ""},
+        {"Name": "EAX2RoomRolloff", "Type": ""},
+        {"Name": "EAX2AirAbsorption", "Type": ""},
+        {"Name": "EAX3RoomLF", "Type": ""},
+        {"Name": "EAX3DecayLFRatio", "Type": ""},
+        {"Name": "EAX3EchoTime", "Type": ""},
+        {"Name": "EAX3EchoDepth", "Type": ""},
+        {"Name": "EAX3ModulationTime", "Type": ""},
+        {"Name": "EAX3ModulationDepth", "Type": ""},
+        {"Name": "EAX3HFReference", "Type": ""},
+        {"Name": "EAX3LFReference", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpamMessages",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Text", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpecializationSpells",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SpecID", "Type": ""},
+        {"Name": "SpellID", "Type": ""},
+        {"Name": "OverridesSpellID", "Type": ""},
+        {"Name": "Field_5_0_1_15464_004", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpellActivationOverlay",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SpellID", "Type": ""},
+        {"Name": "OverlayFileDataID", "Type": ""},
+        {"Name": "ScreenLocationID", "Type": ""},
+        {"Name": "Color", "Type": ""},
+        {"Name": "Scale", "Type": ""},
+        {"Name": "IconHighlightSpellClassMask", "Type": "", "ArraySize": 4},
+        {"Name": "TriggerType", "Type": ""},
+        {"Name": "SoundEntriesID", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpellAuraOptions",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SpellID", "Type": "int"},
+        {"Name": "DifficultyID", "Type": "int"},
+        {"Name": "CumulativeAura", "Type": "int"},
+        {"Name": "ProcChance", "Type": "int"},
+        {"Name": "ProcCharges", "Type": "int"},
+        {"Name": "ProcTypeMask", "Type": "int"},
+        {"Name": "ProcCategoryRecovery", "Type": ""},
+        {"Name": "SpellProcsPerMinuteID", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpellAuraRestrictions",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SpellID", "Type": "int"},
+        {"Name": "DifficultyID", "Type": "int"},
+        {"Name": "CasterAuraState", "Type": "int"},
+        {"Name": "TargetAuraState", "Type": "int"},
+        {"Name": "ExcludeCasterAuraState", "Type": "int"},
+        {"Name": "ExcludeTargetAuraState", "Type": "int"},
+        {"Name": "CasterAuraSpell", "Type": "int"},
+        {"Name": "TargetAuraSpell", "Type": "int"},
+        {"Name": "ExcludeCasterAuraSpell", "Type": "int"},
+        {"Name": "ExcludeTargetAuraSpell", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "SpellAuraVisibility",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SpellID", "Type": ""},
+        {"Name": "Type", "Type": ""},
+        {"Name": "Flags", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpellAuraVisXChrSpec",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SpellAuraVisibilityID", "Type": ""},
+        {"Name": "ChrSpecializationID", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpellCastingRequirements",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "FacingCasterFlags", "Type": ""},
+        {"Name": "MinFactionID", "Type": ""},
+        {"Name": "MinReputation", "Type": ""},
+        {"Name": "RequiredAreasID", "Type": ""},
+        {"Name": "RequiredAuraVision", "Type": ""},
+        {"Name": "RequiresSpellFocus", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpellCastTimes",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Base", "Type": ""},
+        {"Name": "PerLevel", "Type": ""},
+        {"Name": "Minimum", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpellCategories",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SpellID", "Type": "int"},
+        {"Name": "DifficultyID", "Type": "int"},
+        {"Name": "Category", "Type": "int"},
+        {"Name": "DefenseType", "Type": "int"},
+        {"Name": "DispelType", "Type": "int"},
+        {"Name": "Mechanic", "Type": "int"},
+        {"Name": "PreventionType", "Type": "int"},
+        {"Name": "StartRecoveryCategory", "Type": "int"},
+        {"Name": "ChargeCategory", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "SpellCategory",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Flags", "Type": ""},
+        {"Name": "UsesPerWeek", "Type": ""},
+        {"Name": "Name_lang", "Type": ""},
+        {"Name": "MaxCharges", "Type": ""},
+        {"Name": "ChargeRecoveryTime", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpellChainEffects",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "AvgSegLen", "Type": ""},
+        {"Name": "Width", "Type": ""},
+        {"Name": "NoiseScale", "Type": ""},
+        {"Name": "TexCoordScale", "Type": ""},
+        {"Name": "SegDuration", "Type": ""},
+        {"Name": "SegDelay", "Type": ""},
+        {"Name": "Flags", "Type": ""},
+        {"Name": "JointCount", "Type": ""},
+        {"Name": "JointOffsetRadius", "Type": ""},
+        {"Name": "JointsPerMinorJoint", "Type": ""},
+        {"Name": "MinorJointsPerMajorJoint", "Type": ""},
+        {"Name": "MinorJointScale", "Type": ""},
+        {"Name": "MajorJointScale", "Type": ""},
+        {"Name": "JointMoveSpeed", "Type": ""},
+        {"Name": "JointSmoothness", "Type": ""},
+        {"Name": "MinDurationBetweenJointJumps", "Type": ""},
+        {"Name": "MaxDurationBetweenJointJumps", "Type": ""},
+        {"Name": "WaveHeight", "Type": ""},
+        {"Name": "WaveFreq", "Type": ""},
+        {"Name": "WaveSpeed", "Type": ""},
+        {"Name": "MinWaveAngle", "Type": ""},
+        {"Name": "MaxWaveAngle", "Type": ""},
+        {"Name": "MinWaveSpin", "Type": ""},
+        {"Name": "MaxWaveSpin", "Type": ""},
+        {"Name": "ArcHeight", "Type": ""},
+        {"Name": "MinArcAngle", "Type": ""},
+        {"Name": "MaxArcAngle", "Type": ""},
+        {"Name": "MinArcSpin", "Type": ""},
+        {"Name": "MaxArcSpin", "Type": ""},
+        {"Name": "DelayBetweenEffects", "Type": ""},
+        {"Name": "MinFlickerOnDuration", "Type": ""},
+        {"Name": "MaxFlickerOnDuration", "Type": ""},
+        {"Name": "MinFlickerOffDuration", "Type": ""},
+        {"Name": "MaxFlickerOffDuration", "Type": ""},
+        {"Name": "PulseSpeed", "Type": ""},
+        {"Name": "PulseOnLength", "Type": ""},
+        {"Name": "PulseFadeLength", "Type": ""},
+        {"Name": "Alpha", "Type": ""},
+        {"Name": "Red", "Type": ""},
+        {"Name": "Green", "Type": ""},
+        {"Name": "Blue", "Type": ""},
+        {"Name": "BlendMode", "Type": ""},
+        {"Name": "Padding_5_3_0_16965_043", "Type": "", "ArraySize": 3},
+        {"Name": "RenderLayer", "Type": ""},
+        {"Name": "TextureLength", "Type": ""},
+        {"Name": "WavePhase", "Type": ""},
+        {"Name": "SpellChainEffectID", "Type": "", "ArraySize": 11},
+        {"Name": "Texture", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpellClassOptions",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ModalNextSpell", "Type": "int"},
+        {"Name": "SpellClassMask", "Type": "int", "ArraySize": 4},
+        {"Name": "SpellClassSet", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "SpellCooldowns",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SpellID", "Type": "int"},
+        {"Name": "DifficultyID", "Type": "int"},
+        {"Name": "CategoryRecoveryTime", "Type": "int"},
+        {"Name": "RecoveryTime", "Type": "int"},
+        {"Name": "StartRecoveryTime", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "Spell",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name_lang", "Type": "string"},
+        {"Name": "NameSubtext_lang", "Type": "string"},
+        {"Name": "Description_lang", "Type": "string"},
+        {"Name": "AuraDescription_lang", "Type": "string"},
+        {"Name": "RuneCostID", "Type": "int"},
+        {"Name": "SpellMissileID", "Type": "int"},
+        {"Name": "DescriptionVariablesID", "Type": "int"},
+        {"Name": "BonusCoefficient", "Type": "float"},
+        {"Name": "ScalingID", "Type": "int"},
+        {"Name": "AuraOptionsID", "Type": "int"},
+        {"Name": "AuraRestrictionsID", "Type": "int"},
+        {"Name": "CastingRequirementsID", "Type": "int"},
+        {"Name": "CategoriesID", "Type": "int"},
+        {"Name": "ClassOptionsID", "Type": "int"},
+        {"Name": "CooldownsID", "Type": "int"},
+        {"Name": "EquippedItemsID", "Type": "int"},
+        {"Name": "InterruptsID", "Type": "int"},
+        {"Name": "LevelsID", "Type": "int"},
+        {"Name": "ReagentsID", "Type": "int"},
+        {"Name": "ShapeshiftID", "Type": "int"},
+        {"Name": "TargetRestrictionsID", "Type": "int"},
+        {"Name": "TotemsID", "Type": "int"},
+        {"Name": "RequiredProjectID", "Type": "int"},
+        {"Name": "MiscID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "SpellDescriptionVariables",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Variables", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "SpellDispelType",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name_lang", "Type": ""},
+        {"Name": "Mask", "Type": ""},
+        {"Name": "ImmunityPossible", "Type": ""},
+        {"Name": "InternalName", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpellDuration",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Duration", "Type": ""},
+        {"Name": "DurationPerLevel", "Type": ""},
+        {"Name": "MaxDuration", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpellEffectCameraShakes",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "CameraShake", "Type": "", "ArraySize": 3}
+      ]
+    },
+    {
+      "Name": "SpellEffect",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "DifficultyID", "Type": "int"},
+        {"Name": "Effect", "Type": "int"},
+        {"Name": "EffectAmplitude", "Type": "float"},
+        {"Name": "EffectAura", "Type": "int"},
+        {"Name": "EffectAuraPeriod", "Type": "int"},
+        {"Name": "EffectBasePoints", "Type": "int"},
+        {"Name": "EffectBonusCoefficient", "Type": "float"},
+        {"Name": "EffectChainAmplitude", "Type": "float"},
+        {"Name": "EffectChainTargets", "Type": "int"},
+        {"Name": "EffectDieSides", "Type": "int"},
+        {"Name": "EffectItemType", "Type": "int"},
+        {"Name": "EffectMechanic", "Type": "int"},
+        {"Name": "EffectMiscValue", "Type": "int", "ArraySize": 2},
+        {"Name": "EffectPointsPerResource", "Type": "float"},
+        {"Name": "EffectRadiusIndex", "Type": "int", "ArraySize": 2},
+        {"Name": "EffectRealPointsPerLevel", "Type": "float"},
+        {"Name": "EffectSpellClassMask", "Type": "int", "ArraySize": 4},
+        {"Name": "EffectTriggerSpell", "Type": "int"},
+        {"Name": "EffectPos_facing", "Type": "int"},
+        {"Name": "ImplicitTarget", "Type": "int", "ArraySize": 2},
+        {"Name": "SpellID", "Type": "int"},
+        {"Name": "EffectIndex", "Type": "int"},
+        {"Name": "EffectAttributes", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "SpellEffectScaling",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Coefficient", "Type": ""},
+        {"Name": "Variance", "Type": ""},
+        {"Name": "ResourceCoefficient", "Type": ""},
+        {"Name": "Field_5_4_0_17266_004", "Type": ""},
+        {"Name": "SpellEffectID", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpellEquippedItems",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SpellID", "Type": "int"},
+        {"Name": "DifficultyID", "Type": "int"},
+        {"Name": "EquippedItemClass", "Type": "int"},
+        {"Name": "EquippedItemInvTypes", "Type": "int"},
+        {"Name": "EquippedItemSubclass", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "SpellFlyout",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Flags", "Type": ""},
+        {"Name": "RaceMask", "Type": ""},
+        {"Name": "ClassMask", "Type": ""},
+        {"Name": "SpellIconID", "Type": ""},
+        {"Name": "Name_lang", "Type": ""},
+        {"Name": "Description_lang", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpellFlyoutItem",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SpellFlyoutID", "Type": ""},
+        {"Name": "SpellID", "Type": ""},
+        {"Name": "Slot", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpellFocusObject",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name_lang", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpellIcon",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "TextureFilename", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpellInterrupts",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SpellID", "Type": ""},
+        {"Name": "DifficultyID", "Type": ""},
+        {"Name": "AuraInterruptFlags", "Type": "", "ArraySize": 2},
+        {"Name": "ChannelInterruptFlags", "Type": "", "ArraySize": 2},
+        {"Name": "InterruptFlags", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpellItemEnchantmentCondition",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Lt_operandType", "Type": "", "ArraySize": 5},
+        {"Name": "Padding_6_0_1_18179_002", "Type": "", "ArraySize": 3},
+        {"Name": "Lt_operand", "Type": "", "ArraySize": 5},
+        {"Name": "Operator", "Type": "", "ArraySize": 5},
+        {"Name": "Rt_operandType", "Type": "", "ArraySize": 5},
+        {"Name": "Padding_6_0_1_18179_006", "Type": "", "ArraySize": 2},
+        {"Name": "Rt_operand", "Type": "", "ArraySize": 5},
+        {"Name": "Logic", "Type": "", "ArraySize": 5},
+        {"Name": "Padding_6_0_1_18179_009", "Type": "", "ArraySize": 3}
+      ]
+    },
+    {
+      "Name": "SpellItemEnchantment",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Charges", "Type": ""},
+        {"Name": "Effect", "Type": "", "ArraySize": 3},
+        {"Name": "EffectPointsMin", "Type": "", "ArraySize": 3},
+        {"Name": "EffectArg", "Type": "", "ArraySize": 3},
+        {"Name": "Name_lang", "Type": ""},
+        {"Name": "ItemVisual", "Type": ""},
+        {"Name": "Flags", "Type": ""},
+        {"Name": "Src_itemID", "Type": ""},
+        {"Name": "Condition_ID", "Type": ""},
+        {"Name": "RequiredSkillID", "Type": ""},
+        {"Name": "RequiredSkillRank", "Type": ""},
+        {"Name": "MinLevel", "Type": ""},
+        {"Name": "MaxLevel", "Type": ""},
+        {"Name": "ItemLevel", "Type": ""},
+        {"Name": "ScalingClass", "Type": ""},
+        {"Name": "ScalingClassRestricted", "Type": ""},
+        {"Name": "EffectScalingPoints", "Type": "", "ArraySize": 3}
+      ]
+    },
+    {
+      "Name": "SpellKeyboundOverride",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Function", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpellLearnSpell",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "LearnSpellID", "Type": ""},
+        {"Name": "OverridesSpellID", "Type": ""},
+        {"Name": "SpellID", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpellLevels",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SpellID", "Type": "int"},
+        {"Name": "DifficultyID", "Type": "int"},
+        {"Name": "BaseLevel", "Type": "int"},
+        {"Name": "MaxLevel", "Type": "int"},
+        {"Name": "SpellLevel", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "SpellMechanic",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "StateName_lang", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpellMissile",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "DefaultPitchMin", "Type": "float"},
+        {"Name": "DefaultPitchMax", "Type": "float"},
+        {"Name": "DefaultSpeedMin", "Type": "float"},
+        {"Name": "DefaultSpeedMax", "Type": "float"},
+        {"Name": "RandomizeFacingMin", "Type": "float"},
+        {"Name": "RandomizeFacingMax", "Type": "float"},
+        {"Name": "RandomizePitchMin", "Type": "float"},
+        {"Name": "RandomizePitchMax", "Type": "float"},
+        {"Name": "RandomizeSpeedMin", "Type": "float"},
+        {"Name": "RandomizeSpeedMax", "Type": "float"},
+        {"Name": "Gravity", "Type": "float"},
+        {"Name": "MaxDuration", "Type": "float"},
+        {"Name": "CollisionRadius", "Type": "float"}
+      ]
+    },
+    {
+      "Name": "SpellPower",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SpellID", "Type": "int"},
+        {"Name": "OrderIndex", "Type": "int"},
+        {"Name": "PowerType", "Type": "int"},
+        {"Name": "ManaCost", "Type": "int"},
+        {"Name": "ManaCostPerLevel", "Type": "int"},
+        {"Name": "ManaPerSecond", "Type": "int"},
+        {"Name": "PowerDisplayID", "Type": "int"},
+        {"Name": "AltPowerBarID", "Type": "int"},
+        {"Name": "PowerCostPct", "Type": "float"},
+        {"Name": "PowerPctPerSecond", "Type": "float"},
+        {"Name": "RequiredAuraSpellID", "Type": "int"},
+        {"Name": "Field_6_0_1_18179_012", "Type": "float"}
+      ]
+    },
+    {
+      "Name": "SpellProcsPerMinute",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "BaseProcRate", "Type": ""},
+        {"Name": "Flags", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpellProcsPerMinuteMod",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Type", "Type": ""},
+        {"Name": "Param", "Type": ""},
+        {"Name": "Coeff", "Type": ""},
+        {"Name": "SpellProcsPerMinuteID", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpellRadius",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Radius", "Type": ""},
+        {"Name": "RadiusPerLevel", "Type": ""},
+        {"Name": "RadiusMin", "Type": ""},
+        {"Name": "RadiusMax", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpellRange",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "RangeMin", "Type": "", "ArraySize": 2},
+        {"Name": "RangeMax", "Type": "", "ArraySize": 2},
+        {"Name": "Flags", "Type": ""},
+        {"Name": "DisplayName_lang", "Type": ""},
+        {"Name": "DisplayNameShort_lang", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpellReagents",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Reagent", "Type": "", "ArraySize": 8},
+        {"Name": "ReagentCount", "Type": "", "ArraySize": 8},
+        {"Name": "CurrencyID", "Type": ""},
+        {"Name": "CurrencyCount", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpellRuneCost",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Blood", "Type": "int"},
+        {"Name": "Unholy", "Type": "int"},
+        {"Name": "Frost", "Type": "int"},
+        {"Name": "Chromatic", "Type": "int"},
+        {"Name": "RunicPower", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "SpellScaling",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "CastTimeMin", "Type": "int"},
+        {"Name": "CastTimeMax", "Type": "int"},
+        {"Name": "CastTimeMaxLevel", "Type": "int"},
+        {"Name": "Class", "Type": "int"},
+        {"Name": "NerfFactor", "Type": "float"},
+        {"Name": "NerfMaxLevel", "Type": "int"},
+        {"Name": "MaxScalingLevel", "Type": "int"},
+        {"Name": "ScalesFromItemLevel", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "SpellShapeshift",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ShapeshiftExclude", "Type": "int", "ArraySize": 2},
+        {"Name": "ShapeshiftMask", "Type": "int", "ArraySize": 2},
+        {"Name": "StanceBarOrder", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "SpellShapeshiftForm",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "BonusActionBar", "Type": "int"},
+        {"Name": "Name_lang", "Type": "string"},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "CreatureType", "Type": "int"},
+        {"Name": "AttackIconID", "Type": "int"},
+        {"Name": "CombatRoundTime", "Type": "int"},
+        {"Name": "CreatureDisplayID", "Type": "int", "ArraySize": 4},
+        {"Name": "PresetSpellID", "Type": "int", "ArraySize": 8},
+        {"Name": "MountTypeID", "Type": "int"},
+        {"Name": "ExitSoundEntriesID", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpellSpecialUnitEffect",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "EnumID", "Type": "", "IsIndex": true},
+        {"Name": "SpellVisualEffectNameID", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpellTargetRestrictions",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SpellID", "Type": "int"},
+        {"Name": "DifficultyID", "Type": "int"},
+        {"Name": "ConeAngle", "Type": "float"},
+        {"Name": "Width", "Type": "float"},
+        {"Name": "MaxTargets", "Type": "int"},
+        {"Name": "MaxTargetLevel", "Type": "int"},
+        {"Name": "TargetCreatureType", "Type": "int"},
+        {"Name": "Targets", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "SpellTotems",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "RequiredTotemCategoryID", "Type": "int", "ArraySize": 2},
+        {"Name": "Totem", "Type": "int", "ArraySize": 2}
+      ]
+    },
+    {
+      "Name": "SpellVisual",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Field_5_0_1_15464_001", "Type": "int"},
+        {"Name": "PrecastKit", "Type": "int"},
+        {"Name": "CastKit", "Type": "int"},
+        {"Name": "ImpactKit", "Type": "int"},
+        {"Name": "StateKit", "Type": "int"},
+        {"Name": "StateDoneKit", "Type": "int"},
+        {"Name": "ChannelKit", "Type": "int"},
+        {"Name": "MissileDestinationAttachment", "Type": "int"},
+        {"Name": "AnimEventSoundID", "Type": "int"},
+        {"Name": "Field_5_4_0_17266_010", "Type": "int"},
+        {"Name": "CasterImpactKit", "Type": "int"},
+        {"Name": "TargetImpactKit", "Type": "int"},
+        {"Name": "MissileAttachment", "Type": "int"},
+        {"Name": "MissileMotion", "Type": "int"},
+        {"Name": "MissileTargetingKit", "Type": "int"},
+        {"Name": "InstantAreaKit", "Type": "int"},
+        {"Name": "ImpactAreaKit", "Type": "int"},
+        {"Name": "PersistentAreaKit", "Type": "int"},
+        {"Name": "MissileCastOffset", "Type": "float", "ArraySize": 3},
+        {"Name": "MissileImpactOffset", "Type": "int", "ArraySize": 3},
+        {"Name": "Field_5_4_0_17266_021", "Type": "int"},
+        {"Name": "Field_5_4_0_17266_022", "Type": ""},
+        {"Name": "Field_5_4_0_17266_023", "Type": ""},
+        {"Name": "Field_5_4_0_17266_024", "Type": ""},
+        {"Name": "SpellVisualMissileSetID", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpellVisualEffectName",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name", "Type": "string"},
+        {"Name": "AreaEffectSize", "Type": "float"},
+        {"Name": "Scale", "Type": "float"},
+        {"Name": "MinAllowedScale", "Type": "float"},
+        {"Name": "MaxAllowedScale", "Type": "float"},
+        {"Name": "Type", "Type": "int"},
+        {"Name": "Padding_5_4_0_17266_007", "Type": "float", "ArraySize": 3},
+        {"Name": "Alpha", "Type": ""},
+        {"Name": "Flags", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpellVisualKitAreaModel",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ModelFileDataID", "Type": ""},
+        {"Name": "Flags", "Type": ""},
+        {"Name": "LifeTime", "Type": ""},
+        {"Name": "EmissionRate", "Type": ""},
+        {"Name": "Spacing", "Type": ""},
+        {"Name": "ModelScale", "Type": ""}
+      ]
+    },
+    {
+      "Name": "SpellVisualKit",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "StartAnimID", "Type": "int"},
+        {"Name": "AnimID", "Type": "int"},
+        {"Name": "AnimKitID", "Type": "int"},
+        {"Name": "HeadEffect", "Type": "int"},
+        {"Name": "ChestEffect", "Type": "int"},
+        {"Name": "BaseEffect", "Type": "int"},
+        {"Name": "LeftHandEffect", "Type": "int"},
+        {"Name": "RightHandEffect", "Type": "int"},
+        {"Name": "BreathEffect", "Type": "int"},
+        {"Name": "LeftWeaponEffect", "Type": "int"},
+        {"Name": "RightWeaponEffect", "Type": "int"},
+        {"Name": "SpecialEffect", "Type": "int", "ArraySize": 3},
+        {"Name": "WorldEffect", "Type": "int"},
+        {"Name": "SoundID", "Type": "int"},
+        {"Name": "ShakeID", "Type": "float"},
+        {"Name": "CharProc", "Type": "int", "ArraySize": 4},
+        {"Name": "CharParamZero", "Type": "float", "ArraySize": 4},
+        {"Name": "CharParamOne", "Type": "float", "ArraySize": 4},
+        {"Name": "CharParamTwo", "Type": "float", "ArraySize": 4},
+        {"Name": "CharParamThree", "Type": "float", "ArraySize": 4},
+        {"Name": "Flags", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "SpellVisualKitModelAttach",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ParentSpellVisualKitID", "Type": "int"},
+        {"Name": "SpellVisualEffectNameID", "Type": "int"},
+        {"Name": "AttachmentID", "Type": "int"},
+        {"Name": "Offset", "Type": "float", "ArraySize": 3},
+        {"Name": "Yaw", "Type": "float"},
+        {"Name": "Pitch", "Type": "int"},
+        {"Name": "Roll", "Type": "int"},
+        {"Name": "Field_4_0_6_13623_008", "Type": "int"},
+        {"Name": "StartAnimID", "Type": "int"},
+        {"Name": "AnimID", "Type": "int"},
+        {"Name": "EndAnimID", "Type": "int"},
+        {"Name": "AnimKitID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "Startup_Strings",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name", "Type": "string"},
+        {"Name": "Message_lang", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "Stationery",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ItemID", "Type": "int"},
+        {"Name": "Texture", "Type": "string"},
+        {"Name": "Flags", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "StringLookups",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "String", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "SummonProperties",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Control", "Type": "int"},
+        {"Name": "Faction", "Type": "int"},
+        {"Name": "Title", "Type": "int"},
+        {"Name": "Slot", "Type": "int"},
+        {"Name": "Flags", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "Talent",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SpecID", "Type": "int"},
+        {"Name": "TierID", "Type": "int"},
+        {"Name": "ColumnIndex", "Type": "int"},
+        {"Name": "SpellID", "Type": "int"},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "CategoryMask", "Type": "int", "ArraySize": 2},
+        {"Name": "ClassID", "Type": "int"},
+        {"Name": "OverridesSpellID", "Type": "int"},
+        {"Name": "Description_lang", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "TaxiNodes",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ContinentID", "Type": "int"},
+        {"Name": "Pos", "Type": "float", "ArraySize": 3},
+        {"Name": "Name_lang", "Type": "string"},
+        {"Name": "MountCreatureID", "Type": "int", "ArraySize": 2},
+        {"Name": "ConditionID", "Type": "int"},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "MapOffset", "Type": "float", "ArraySize": 2}
+      ]
+    },
+    {
+      "Name": "TaxiPath",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "FromTaxiNode", "Type": "int"},
+        {"Name": "ToTaxiNode", "Type": "int"},
+        {"Name": "Cost", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "TaxiPathNode",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "PathID", "Type": "int"},
+        {"Name": "NodeIndex", "Type": "int"},
+        {"Name": "ContinentID", "Type": "int"},
+        {"Name": "Locxyz", "Type": "float", "ArraySize": 3},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "Delay", "Type": "int"},
+        {"Name": "ArrivalEventID", "Type": "int"},
+        {"Name": "DepartureEventID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "TerrainMaterial",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name", "Type": "string"},
+        {"Name": "Shader", "Type": "int"},
+        {"Name": "EnvMapPath", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "TerrainType",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "TerrainID", "Type": "int"},
+        {"Name": "TerrainDesc", "Type": "string"},
+        {"Name": "FootstepSprayRun", "Type": "int"},
+        {"Name": "FootstepSprayWalk", "Type": "int"},
+        {"Name": "SoundID", "Type": "int"},
+        {"Name": "Flags", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "TerrainTypeSounds",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true}
+      ]
+    },
+    {
+      "Name": "TotemCategory",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name_lang", "Type": "string"},
+        {"Name": "TotemCategoryType", "Type": "int"},
+        {"Name": "TotemCategoryMask", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "TradeSkillCategory",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SkillLineID", "Type": "int"},
+        {"Name": "ParentTradeSkillCategoryID", "Type": "int"},
+        {"Name": "OrderIndex", "Type": "int"},
+        {"Name": "Name_lang", "Type": "string"},
+        {"Name": "Flags", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "TransportAnimation",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "TransportID", "Type": "int"},
+        {"Name": "TimeIndex", "Type": "int"},
+        {"Name": "Pos", "Type": "float", "ArraySize": 3},
+        {"Name": "SequenceID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "TransportPhysics",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "WaveAmp", "Type": "float"},
+        {"Name": "WaveTimeScale", "Type": "float"},
+        {"Name": "RollAmp", "Type": "float"},
+        {"Name": "RollTimeScale", "Type": "float"},
+        {"Name": "PitchAmp", "Type": "float"},
+        {"Name": "PitchTimeScale", "Type": "float"},
+        {"Name": "MaxBank", "Type": "float"},
+        {"Name": "MaxBankTurnSpeed", "Type": "float"},
+        {"Name": "SpeedDampThresh", "Type": "float"},
+        {"Name": "SpeedDamp", "Type": "float"}
+      ]
+    },
+    {
+      "Name": "TransportRotation",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "GameObjectsID", "Type": "int"},
+        {"Name": "TimeIndex", "Type": "int"},
+        {"Name": "Rot", "Type": "float", "ArraySize": 4}
+      ]
+    },
+    {
+      "Name": "UnitBlood",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "CombatBloodSpurtFront", "Type": "int", "ArraySize": 2},
+        {"Name": "CombatBloodSpurtBack", "Type": "int", "ArraySize": 2},
+        {"Name": "GroundBlood", "Type": "string", "ArraySize": 5}
+      ]
+    },
+    {
+      "Name": "UnitBloodLevels",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Violencelevel", "Type": "int", "ArraySize": 3}
+      ]
+    },
+    {
+      "Name": "UnitCondition",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "Variable", "Type": "int", "ArraySize": 8},
+        {"Name": "Op", "Type": "int", "ArraySize": 8},
+        {"Name": "Value", "Type": "int", "ArraySize": 8}
+      ]
+    },
+    {
+      "Name": "UnitPowerBar",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "MinPower", "Type": "int"},
+        {"Name": "MaxPower", "Type": "int"},
+        {"Name": "StartPower", "Type": "int"},
+        {"Name": "CenterPower", "Type": "int"},
+        {"Name": "RegenerationPeace", "Type": "float"},
+        {"Name": "RegenerationCombat", "Type": "float"},
+        {"Name": "BarType", "Type": "int"},
+        {"Name": "FileDataID", "Type": "int", "ArraySize": 6},
+        {"Name": "Color", "Type": "int", "ArraySize": 6},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "Name_lang", "Type": "string"},
+        {"Name": "Cost_lang", "Type": "string"},
+        {"Name": "OutOfError_lang", "Type": "string"},
+        {"Name": "ToolTip_lang", "Type": "string"},
+        {"Name": "StartInset", "Type": "float"},
+        {"Name": "EndInset", "Type": "float"}
+      ]
+    },
+    {
+      "Name": "Vehicle",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "FlagsB", "Type": "string"},
+        {"Name": "TurnSpeed", "Type": "float"},
+        {"Name": "PitchSpeed", "Type": "float"},
+        {"Name": "PitchMin", "Type": "float"},
+        {"Name": "PitchMax", "Type": "float"},
+        {"Name": "SeatID", "Type": "int", "ArraySize": 8},
+        {"Name": "MouseLookOffsetPitch", "Type": "float"},
+        {"Name": "CameraFadeDistScalarMin", "Type": "float"},
+        {"Name": "CameraFadeDistScalarMax", "Type": "float"},
+        {"Name": "CameraPitchOffset", "Type": "float"},
+        {"Name": "FacingLimitRight", "Type": "float"},
+        {"Name": "FacingLimitLeft", "Type": "float"},
+        {"Name": "MsslTrgtTurnLingering", "Type": "float"},
+        {"Name": "MsslTrgtPitchLingering", "Type": "string"},
+        {"Name": "MsslTrgtMouseLingering", "Type": "string"},
+        {"Name": "MsslTrgtEndOpacity", "Type": "string"},
+        {"Name": "MsslTrgtArcSpeed", "Type": "float"},
+        {"Name": "MsslTrgtArcRepeat", "Type": "int"},
+        {"Name": "MsslTrgtArcWidth", "Type": "float"},
+        {"Name": "MsslTrgtImpactRadius", "Type": "int", "ArraySize": 2},
+        {"Name": "MsslTrgtArcTexture", "Type": "int"},
+        {"Name": "MsslTrgtImpactTexture", "Type": "int"},
+        {"Name": "MsslTrgtImpactModel", "Type": "float", "ArraySize": 2},
+        {"Name": "CameraYawOffset", "Type": "float"},
+        {"Name": "UiLocomotionType", "Type": "int"},
+        {"Name": "MsslTrgtImpactTexRadius", "Type": "float"},
+        {"Name": "VehicleUIIndicatorID", "Type": "int"},
+        {"Name": "PowerDisplayID", "Type": "int", "ArraySize": 3}
+      ]
+    },
+    {
+      "Name": "VehicleSeat",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "AttachmentID", "Type": "int"},
+        {"Name": "AttachmentOffset", "Type": "float", "ArraySize": 3},
+        {"Name": "EnterPreDelay", "Type": "float"},
+        {"Name": "EnterSpeed", "Type": "float"},
+        {"Name": "EnterGravity", "Type": "float"},
+        {"Name": "EnterMinDuration", "Type": "float"},
+        {"Name": "EnterMaxDuration", "Type": "float"},
+        {"Name": "EnterMinArcHeight", "Type": "float"},
+        {"Name": "EnterMaxArcHeight", "Type": "float"},
+        {"Name": "EnterAnimStart", "Type": "int"},
+        {"Name": "EnterAnimLoop", "Type": "int"},
+        {"Name": "RideAnimStart", "Type": "int"},
+        {"Name": "RideAnimLoop", "Type": "int"},
+        {"Name": "RideUpperAnimStart", "Type": "int"},
+        {"Name": "RideUpperAnimLoop", "Type": "int"},
+        {"Name": "ExitPreDelay", "Type": "float"},
+        {"Name": "ExitSpeed", "Type": "float"},
+        {"Name": "ExitGravity", "Type": "float"},
+        {"Name": "ExitMinDuration", "Type": "float"},
+        {"Name": "ExitMaxDuration", "Type": "float"},
+        {"Name": "ExitMinArcHeight", "Type": "float"},
+        {"Name": "ExitMaxArcHeight", "Type": "float"},
+        {"Name": "ExitAnimStart", "Type": "int"},
+        {"Name": "ExitAnimLoop", "Type": "int"},
+        {"Name": "ExitAnimEnd", "Type": "int"},
+        {"Name": "PassengerYaw", "Type": "float"},
+        {"Name": "PassengerPitch", "Type": "float"},
+        {"Name": "PassengerRoll", "Type": "float"},
+        {"Name": "PassengerAttachmentID", "Type": "int"},
+        {"Name": "VehicleEnterAnim", "Type": "int"},
+        {"Name": "VehicleExitAnim", "Type": "int"},
+        {"Name": "VehicleRideAnimLoop", "Type": "int"},
+        {"Name": "VehicleEnterAnimBone", "Type": "int"},
+        {"Name": "VehicleExitAnimBone", "Type": "int"},
+        {"Name": "VehicleRideAnimLoopBone", "Type": "int"},
+        {"Name": "VehicleEnterAnimDelay", "Type": "float"},
+        {"Name": "VehicleExitAnimDelay", "Type": "float"},
+        {"Name": "VehicleAbilityDisplay", "Type": "int"},
+        {"Name": "EnterUISoundID", "Type": "int"},
+        {"Name": "ExitUISoundID", "Type": "int"},
+        {"Name": "FlagsB", "Type": "int"},
+        {"Name": "CameraEnteringDelay", "Type": "int"},
+        {"Name": "CameraEnteringDuration", "Type": "float"},
+        {"Name": "CameraExitingDelay", "Type": "float"},
+        {"Name": "CameraExitingDuration", "Type": "float"},
+        {"Name": "CameraOffset", "Type": "float", "ArraySize": 3},
+        {"Name": "CameraPosChaseRate", "Type": "float"},
+        {"Name": "CameraFacingChaseRate", "Type": "float"},
+        {"Name": "CameraEnteringZoom", "Type": "float"},
+        {"Name": "CameraSeatZoomMin", "Type": "float"},
+        {"Name": "CameraSeatZoomMax", "Type": "float"},
+        {"Name": "EnterAnimKitID", "Type": "float"},
+        {"Name": "RideAnimKitID", "Type": "int"},
+        {"Name": "ExitAnimKitID", "Type": "int"},
+        {"Name": "VehicleEnterAnimKitID", "Type": "int"},
+        {"Name": "VehicleRideAnimKitID", "Type": "int"},
+        {"Name": "VehicleExitAnimKitID", "Type": "int"},
+        {"Name": "CameraModeID", "Type": "int"},
+        {"Name": "FlagsC", "Type": "int"},
+        {"Name": "UiSkinFileDataID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "VehicleUIIndicator",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "BackgroundTexture", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "VehicleUIIndSeat",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "VehicleUIIndicatorID", "Type": "int"},
+        {"Name": "VirtualSeatIndex", "Type": "int"},
+        {"Name": "XPos", "Type": "float"},
+        {"Name": "YPos", "Type": "float"}
+      ]
+    },
+    {
+      "Name": "VideoHardware",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "VendorID", "Type": "int"},
+        {"Name": "DeviceID", "Type": "int"},
+        {"Name": "FarclipIdx", "Type": "int"},
+        {"Name": "TerrainLODDistIdx", "Type": "int"},
+        {"Name": "TerrainShadowLOD", "Type": "int"},
+        {"Name": "DetailDoodadDensityIdx", "Type": "int"},
+        {"Name": "DetailDoodadAlpha", "Type": "int"},
+        {"Name": "AnimatingDoodadIdx", "Type": "int"},
+        {"Name": "Trilinear", "Type": "int"},
+        {"Name": "NumLights", "Type": "int"},
+        {"Name": "Specularity", "Type": "int"},
+        {"Name": "WaterLODIdx", "Type": "int"},
+        {"Name": "ParticleDensityIdx", "Type": "int"},
+        {"Name": "UnitDrawDistIdx", "Type": "int"},
+        {"Name": "SmallCullDistIdx", "Type": "int"},
+        {"Name": "ResolutionIdx", "Type": "int"},
+        {"Name": "BaseMipLevel", "Type": "int"},
+        {"Name": "OglOverrides", "Type": "string"},
+        {"Name": "D3dOverrides", "Type": "string"},
+        {"Name": "FixLag", "Type": "int"},
+        {"Name": "Multisample", "Type": "int"},
+        {"Name": "Atlasdisable", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "VocalUISounds",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "VocalUIEnum", "Type": "int"},
+        {"Name": "RaceID", "Type": "int"},
+        {"Name": "NormalSoundID", "Type": "int", "ArraySize": 2},
+        {"Name": "PissedSoundID", "Type": "int", "ArraySize": 2}
+      ]
+    },
+    {
+      "Name": "WeaponImpactSounds",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "WeaponSubClassID", "Type": "int"},
+        {"Name": "ParrySoundType", "Type": "int"},
+        {"Name": "ImpactSoundID", "Type": "int", "ArraySize": 10},
+        {"Name": "CritImpactSoundID", "Type": "int", "ArraySize": 10}
+      ]
+    },
+    {
+      "Name": "WeaponSwingSounds2",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SwingType", "Type": "int"},
+        {"Name": "Crit", "Type": "int"},
+        {"Name": "SoundID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "Weather",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "AmbienceID", "Type": "int"},
+        {"Name": "Type", "Type": "int"},
+        {"Name": "EffectType", "Type": "int"},
+        {"Name": "Intensity", "Type": "float", "ArraySize": 2},
+        {"Name": "TransitionSkyBox", "Type": "float"},
+        {"Name": "EffectColor", "Type": "float", "ArraySize": 3},
+        {"Name": "EffectTexture", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "WMOAreaTable",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "WMOID", "Type": "int"},
+        {"Name": "NameSetID", "Type": "int"},
+        {"Name": "WMOGroupID", "Type": "int"},
+        {"Name": "SoundProviderPref", "Type": "int"},
+        {"Name": "SoundProviderPrefUnderwater", "Type": "int"},
+        {"Name": "AmbienceID", "Type": "int"},
+        {"Name": "ZoneMusic", "Type": "int"},
+        {"Name": "IntroSound", "Type": "int"},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "AreaTableID", "Type": "int"},
+        {"Name": "AreaName_lang", "Type": "int"},
+        {"Name": "UwIntroSound", "Type": "int"},
+        {"Name": "UwZoneMusic", "Type": "int"},
+        {"Name": "UwAmbience", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "WorldChunkSounds",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "WorldMapContinentID", "Type": "int"},
+        {"Name": "ChunkX", "Type": "int"},
+        {"Name": "ChunkY", "Type": "int"},
+        {"Name": "SubchunkX", "Type": "int"},
+        {"Name": "SubchunkY", "Type": "int"},
+        {"Name": "ZoneIntroMusicID", "Type": "int"},
+        {"Name": "ZoneMusicID", "Type": "int"},
+        {"Name": "SoundAmbienceID", "Type": "int"},
+        {"Name": "SoundProviderPreferencesID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "WorldEffect",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "TargetType", "Type": "int"},
+        {"Name": "TargetAsset", "Type": "int"},
+        {"Name": "QuestFeedbackEffectID", "Type": "int"},
+        {"Name": "PlayerConditionID", "Type": "int"},
+        {"Name": "CombatConditionID", "Type": "int"},
+        {"Name": "WhenToDisplay", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "WorldElapsedTimer",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name_lang", "Type": "string"},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "Type", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "WorldMapArea",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "MapID", "Type": "int"},
+        {"Name": "AreaID", "Type": "int"},
+        {"Name": "AreaName", "Type": "string"},
+        {"Name": "LocLeft", "Type": "float"},
+        {"Name": "LocRight", "Type": "float"},
+        {"Name": "LocTop", "Type": "float"},
+        {"Name": "LocBottom", "Type": "float"},
+        {"Name": "DisplayMapID", "Type": "int"},
+        {"Name": "DefaultDungeonFloor", "Type": "int"},
+        {"Name": "ParentWorldMapID", "Type": "int"},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "LevelRangeMin", "Type": "int"},
+        {"Name": "LevelRangeMax", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "WorldMapContinent",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "MapID", "Type": "int"},
+        {"Name": "LeftBoundary", "Type": "int"},
+        {"Name": "RightBoundary", "Type": "int"},
+        {"Name": "TopBoundary", "Type": "int"},
+        {"Name": "BottomBoundary", "Type": "int"},
+        {"Name": "ContinentOffset", "Type": "float", "ArraySize": 2},
+        {"Name": "Scale", "Type": "float"},
+        {"Name": "TaxiMin", "Type": "float", "ArraySize": 2},
+        {"Name": "TaxiMax", "Type": "float", "ArraySize": 2},
+        {"Name": "WorldMapID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "WorldMapOverlay",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "MapAreaID", "Type": "int"},
+        {"Name": "AreaID", "Type": "int", "ArraySize": 4},
+        {"Name": "TextureName", "Type": "string"},
+        {"Name": "TextureWidth", "Type": "int"},
+        {"Name": "TextureHeight", "Type": "int"},
+        {"Name": "OffsetX", "Type": "int"},
+        {"Name": "OffsetY", "Type": "int"},
+        {"Name": "HitRectTop", "Type": "int"},
+        {"Name": "HitRectLeft", "Type": "int"},
+        {"Name": "HitRectBottom", "Type": "int"},
+        {"Name": "HitRectRight", "Type": "int"},
+        {"Name": "PlayerConditionID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "WorldMapTransforms",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "MapID", "Type": "int"},
+        {"Name": "RegionMin", "Type": "float", "ArraySize": 3},
+        {"Name": "RegionMax", "Type": "float", "ArraySize": 3},
+        {"Name": "NewMapID", "Type": "int"},
+        {"Name": "RegionOffset", "Type": "float", "ArraySize": 2},
+        {"Name": "NewDungeonMapID", "Type": "int"},
+        {"Name": "Flags", "Type": "int"},
+        {"Name": "NewAreaID", "Type": "int"},
+        {"Name": "RegionScale", "Type": "float"}
+      ]
+    },
+    {
+      "Name": "World_PVP_Area",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Area_ID", "Type": "int"},
+        {"Name": "Next_time_worldstate", "Type": "int"},
+        {"Name": "Game_time_worldstate", "Type": "int"},
+        {"Name": "Battle_populate_time", "Type": "int"},
+        {"Name": "Min_level", "Type": "int"},
+        {"Name": "Max_level", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "WorldState",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true}
+      ]
+    },
+    {
+      "Name": "WorldStateExpression",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Expression", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "WorldStateUI",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "MapID", "Type": "int"},
+        {"Name": "AreaID", "Type": "int"},
+        {"Name": "PhaseUseFlags", "Type": "int"},
+        {"Name": "PhaseID", "Type": "int"},
+        {"Name": "PhaseGroupID", "Type": "int"},
+        {"Name": "Icon", "Type": "string"},
+        {"Name": "String_lang", "Type": "string"},
+        {"Name": "Tooltip_lang", "Type": "string"},
+        {"Name": "StateVariable", "Type": "int"},
+        {"Name": "Type", "Type": "int"},
+        {"Name": "DynamicIcon", "Type": "string"},
+        {"Name": "DynamicTooltip_lang", "Type": "string"},
+        {"Name": "ExtendedUI", "Type": "string"},
+        {"Name": "ExtendedUIStateVariable", "Type": "int", "ArraySize": 3}
+      ]
+    },
+    {
+      "Name": "WorldStateZoneSounds",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "WorldStateID", "Type": "int"},
+        {"Name": "WorldStateValue", "Type": "int"},
+        {"Name": "AreaID", "Type": "int"},
+        {"Name": "WMOAreaID", "Type": "int"},
+        {"Name": "ZoneIntroMusicID", "Type": "int"},
+        {"Name": "ZoneMusicID", "Type": "int"},
+        {"Name": "SoundAmbienceID", "Type": "int"},
+        {"Name": "SoundProviderPreferencesID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "WowError_Strings",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Error_Name", "Type": "string"},
+        {"Name": "Error_Text", "Type": "string"}
+      ]
+    },
+    {
+      "Name": "ZoneIntroMusicTable",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name", "Type": "string"},
+        {"Name": "SoundID", "Type": "int"},
+        {"Name": "Priority", "Type": "int"},
+        {"Name": "MinDelayMinutes", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ZoneLight",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "Name", "Type": "string"},
+        {"Name": "MapID", "Type": "int"},
+        {"Name": "LightID", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ZoneLightPoint",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "ZoneLightID", "Type": "int"},
+        {"Name": "Pos", "Type": "float", "ArraySize": 2},
+        {"Name": "PointOrder", "Type": "int"}
+      ]
+    },
+    {
+      "Name": "ZoneMusic",
+      "Extension": "dbc",
+      "Fields": [
+        {"Name": "ID", "Type": "int", "IsIndex": true},
+        {"Name": "SetName", "Type": "string"},
+        {"Name": "SilenceIntervalMin", "Type": "int", "ArraySize": 2},
+        {"Name": "SilenceIntervalMax", "Type": "int", "ArraySize": 2},
+        {"Name": "Sounds", "Type": "int", "ArraySize": 2}
+      ]
+    }
+  ]
+}
