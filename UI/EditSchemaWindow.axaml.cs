@@ -15,17 +15,15 @@ namespace DBCycle
         private TableDefinition _tableDefinition;
 
         public EditSchemaWindow(TableDefinition tableDefinition)
-{
-    InitializeComponent();
-    _tableDefinition = tableDefinition;
-    // Set the DataContext to this window so that AvailableTypes is available
-    DataContext = this;
-    FieldsDataGrid.ItemsSource = _tableDefinition.Fields;
-}
+        {
+            InitializeComponent();
+            _tableDefinition = tableDefinition;
+            DataContext = this;
+            FieldsDataGrid.ItemsSource = _tableDefinition.Fields;
+        }
 
         private void AddFieldButton_Click(object? sender, RoutedEventArgs e)
         {
-            // Create a new field with default values.
             var newField = new FieldDefinition
             {
                 Name = "NewField",
@@ -34,7 +32,6 @@ namespace DBCycle
                 ArraySize = null
             };
             _tableDefinition.Fields.Add(newField);
-            // Refresh the DataGrid ItemsSource.
             FieldsDataGrid.ItemsSource = null;
             FieldsDataGrid.ItemsSource = _tableDefinition.Fields;
         }
@@ -44,7 +41,6 @@ namespace DBCycle
             if (FieldsDataGrid.SelectedItem is FieldDefinition selectedField)
             {
                 _tableDefinition.Fields.Remove(selectedField);
-                // Refresh the DataGrid ItemsSource.
                 FieldsDataGrid.ItemsSource = null;
                 FieldsDataGrid.ItemsSource = _tableDefinition.Fields;
             }
@@ -52,13 +48,11 @@ namespace DBCycle
 
         private void SaveButton_Click(object? sender, RoutedEventArgs e)
         {
-            // Close the window returning true.
             Close(true);
         }
 
         private void CancelButton_Click(object? sender, RoutedEventArgs e)
         {
-            // Close the window returning false.
             Close(false);
         }
     }

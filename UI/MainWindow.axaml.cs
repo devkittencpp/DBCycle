@@ -1,15 +1,18 @@
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Controls.Documents;
 using Avalonia.Media;
 using Avalonia.Threading;
 using Avalonia.Markup.Xaml;
+using Avalonia.Input;
+using Avalonia.Media.Imaging;
 using System;
 using System.IO;
+using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using DBCycle;
-using System.Text;
 using MySql.Data.MySqlClient;
 
 namespace DBCycle
@@ -25,22 +28,63 @@ namespace DBCycle
 
     public partial class MainWindow : Window
     {
+        // Controls that are not auto-generated.
         private TextBlock _logConsole;
         private CheckBox _developerModeCheckBox;
+
         private readonly string _configPath = "config.json";
+
+        // Fields to manage cancellation and pause/resume.
+        private CancellationTokenSource _importCts;
+        private ManualResetEventSlim _pauseEvent = new ManualResetEventSlim(true); // Initially not paused
 
         public MainWindow()
         {
             InitializeComponent();
+
             _logConsole = this.FindControl<TextBlock>("LogConsole");
+            if (_logConsole == null)
+                Console.WriteLine("Warning: LogConsole not found in XAML.");
+
             _developerModeCheckBox = this.FindControl<CheckBox>("DeveloperModeCheckBox");
+            if (_developerModeCheckBox == null)
+                Console.WriteLine("Warning: DeveloperModeCheckBox not found in XAML.");
+
+            // Set the initial images for the Pause/Resume and Cancel buttons.
+            var pauseResumeButton = this.FindControl<Button>("PauseResumeButton");
+            if (pauseResumeButton != null)
+            {
+                pauseResumeButton.Content = new Image
+                {
+                    Source = new Bitmap("assets/btn_pause.png"),
+                    Stretch = Avalonia.Media.Stretch.Uniform
+                };
+            }
+            var cancelImportButton = this.FindControl<Button>("CancelImportButton");
+            if (cancelImportButton != null)
+            {
+                cancelImportButton.Content = new Image
+                {
+                    Source = new Bitmap("assets/btn_stop.png"),
+                    Stretch = Avalonia.Media.Stretch.Uniform
+                };
+            }
+
+            // Initially hide overlay buttons.
+            var copyLogButton = this.FindControl<Button>("CopyLogButton");
+            if (copyLogButton != null)
+            {
+                copyLogButton.Opacity = 0;
+                copyLogButton.IsHitTestVisible = false;
+            }
+            // The grouped buttons are inside the StackPanel; their visibility will be controlled via pointer events.
+
             EnsureConfigFile();
         }
 
-        private void SingleFile_Click(object? sender, RoutedEventArgs e)
+        private void InitializeComponent()
         {
-            var singleFileWindow = new SingleFileWindow();
-            singleFileWindow.ShowDialog(this);
+            AvaloniaXamlLoader.Load(this);
         }
 
         private void EnsureConfigFile()
@@ -50,7 +94,7 @@ namespace DBCycle
                 Config defaultConfig = new Config()
                 {
                     DbcFileDirectory = "",
-                    JsonDefinitionFile = "schema.json",
+                    JsonDefinitionFile = "schema_18414.json",
                     DbcConnectionString = "server=localhost;database=dbc;uid=root;pwd=Kittens123",
                     Db2ConnectionString = "server=localhost;database=db2;uid=root;pwd=Kittens123",
                     ExportPath = ""
@@ -63,12 +107,13 @@ namespace DBCycle
 
         private async void Import_Click(object? sender, RoutedEventArgs e)
         {
-            // Capture the Developer Mode state on the UI thread
+            _importCts = new CancellationTokenSource();
+            _pauseEvent.Set();
             bool developerModeEnabled = _developerModeCheckBox?.IsChecked == true;
-            await Task.Run(() => ImportData(developerModeEnabled));
+            await Task.Run(() => ImportData(developerModeEnabled, _importCts.Token, _pauseEvent));
         }
 
-        private void ImportData(bool developerModeEnabled)
+        private void ImportData(bool developerModeEnabled, CancellationToken token, ManualResetEventSlim pauseEvent)
         {
             try
             {
@@ -84,21 +129,16 @@ namespace DBCycle
                     UpdateLog("Failed to parse config file.");
                     return;
                 }
-
                 if (string.IsNullOrWhiteSpace(config.JsonDefinitionFile) || string.IsNullOrWhiteSpace(config.DbcFileDirectory))
                 {
                     UpdateLog("Error: JsonDefinitionFile and/or DbcFileDirectory is not set in the config.");
                     return;
                 }
-
-                // Use the captured developer mode flag
                 if (developerModeEnabled)
                 {
                     UpdateLog("Developer Mode enabled: resetting database.");
                     ResetAllDatabases(config);
                 }
-
-                // Instantiate the importer with both DBC and DB2 connection strings.
                 var importer = new DBCImporter(
                     config.JsonDefinitionFile,
                     config.DbcFileDirectory,
@@ -106,8 +146,12 @@ namespace DBCycle
                     config.Db2ConnectionString,
                     developerModeEnabled,
                     UpdateLog);
-                importer.ImportAll();
+                importer.ImportAll(token, pauseEvent);
                 UpdateLog("Import complete.");
+            }
+            catch (OperationCanceledException)
+            {
+                UpdateLog("Import operation canceled.");
             }
             catch (Exception ex)
             {
@@ -115,17 +159,14 @@ namespace DBCycle
             }
         }
 
-        // Resets a single database given its connection string and a label.
         private void ResetDatabase(string connectionString, string label)
         {
             try
             {
                 var builder = new MySqlConnectionStringBuilder(connectionString);
                 string dbName = builder.Database;
-                // Remove the database from the connection string
                 builder.Database = "";
                 string connectionStringWithoutDb = builder.ConnectionString;
-
                 using (var conn = new MySqlConnection(connectionStringWithoutDb))
                 {
                     conn.Open();
@@ -147,7 +188,6 @@ namespace DBCycle
             }
         }
 
-        // Resets both the DBC and DB2 databases.
         private void ResetAllDatabases(Config config)
         {
             ResetDatabase(config.DbcConnectionString, "DBC");
@@ -175,8 +215,6 @@ namespace DBCycle
                     UpdateLog("Failed to parse config file.");
                     return;
                 }
-
-                // Instantiate the exporter with both DBC and DB2 connection strings.
                 var exporter = new DBCExporter(
                     config.JsonDefinitionFile,
                     config.ExportPath,
@@ -196,6 +234,72 @@ namespace DBCycle
         {
             var settingsWindow = new SettingsWindow();
             settingsWindow.ShowDialog(this);
+        }
+
+        private void SingleFile_Click(object? sender, RoutedEventArgs e)
+        {
+            var singleFileWindow = new SingleFileWindow();
+            singleFileWindow.ShowDialog(this);
+        }
+
+        private void PauseResume_Click(object? sender, RoutedEventArgs e)
+        {
+            if (_pauseEvent.IsSet)
+            {
+                _pauseEvent.Reset();
+                UpdateLog("Import paused.");
+                if (sender is Button btn)
+                {
+                    btn.Content = new Image
+                    {
+                        Source = new Bitmap("assets/btn_play.png"),
+                        Stretch = Avalonia.Media.Stretch.Uniform
+                    };
+                }
+            }
+            else
+            {
+                _pauseEvent.Set();
+                UpdateLog("Import resumed.");
+                if (sender is Button btn)
+                {
+                    btn.Content = new Image
+                    {
+                        Source = new Bitmap("assets/btn_pause.png"),
+                        Stretch = Avalonia.Media.Stretch.Uniform
+                    };
+                }
+            }
+        }
+
+        private void CancelImport_Click(object? sender, RoutedEventArgs e)
+        {
+            _importCts?.Cancel();
+            UpdateLog("Cancel requested.");
+        }
+
+        private async void CopyLog_Click(object? sender, RoutedEventArgs e)
+        {
+            string logText = GetLogText();
+            if (!string.IsNullOrEmpty(logText))
+            {
+                await this.Clipboard.SetTextAsync(logText);
+                UpdateLog("Log copied to clipboard.");
+            }
+        }
+
+        private string GetLogText()
+        {
+            var stringBuilder = new StringBuilder();
+            if (_logConsole?.Inlines != null)
+            {
+                foreach (var inline in _logConsole.Inlines)
+                {
+                    if (inline is Run run)
+                        stringBuilder.Append(run.Text);
+                }
+            }
+            return stringBuilder.ToString();
         }
 
         private void UpdateLog(string message)
@@ -237,27 +341,50 @@ namespace DBCycle
             });
         }
 
-        private async void CopyLog_Click(object? sender, RoutedEventArgs e)
+        // Overlay button event handlers for showing/hiding controls.
+        private void LogGrid_PointerEntered(object? sender, PointerEventArgs e)
         {
-            string logText = GetLogText();
-            if (!string.IsNullOrEmpty(logText))
+            var copyLogButton = this.FindControl<Button>("CopyLogButton");
+            if (copyLogButton != null)
             {
-                await this.Clipboard.SetTextAsync(logText);
-                UpdateLog("Log copied to clipboard.");
+                copyLogButton.Opacity = 0.5;
+                copyLogButton.IsHitTestVisible = true;
+            }
+            // The grouped Cancel and Pause/Resume buttons are inside the right-aligned StackPanel.
+            var pauseResumeButton = this.FindControl<Button>("PauseResumeButton");
+            var cancelImportButton = this.FindControl<Button>("CancelImportButton");
+            if (pauseResumeButton != null)
+            {
+                pauseResumeButton.Opacity = 0.5;
+                pauseResumeButton.IsHitTestVisible = true;
+            }
+            if (cancelImportButton != null)
+            {
+                cancelImportButton.Opacity = 0.5;
+                cancelImportButton.IsHitTestVisible = true;
             }
         }
 
-        private string GetLogText()
+        private void LogGrid_PointerExited(object? sender, PointerEventArgs e)
         {
-            var stringBuilder = new StringBuilder();
-            foreach (var inline in _logConsole.Inlines)
+            var copyLogButton = this.FindControl<Button>("CopyLogButton");
+            if (copyLogButton != null)
             {
-                if (inline is Run run)
-                {
-                    stringBuilder.Append(run.Text);
-                }
+                copyLogButton.Opacity = 0;
+                copyLogButton.IsHitTestVisible = false;
             }
-            return stringBuilder.ToString();
+            var pauseResumeButton = this.FindControl<Button>("PauseResumeButton");
+            var cancelImportButton = this.FindControl<Button>("CancelImportButton");
+            if (pauseResumeButton != null)
+            {
+                pauseResumeButton.Opacity = 0;
+                pauseResumeButton.IsHitTestVisible = false;
+            }
+            if (cancelImportButton != null)
+            {
+                cancelImportButton.Opacity = 0;
+                cancelImportButton.IsHitTestVisible = false;
+            }
         }
     }
 }

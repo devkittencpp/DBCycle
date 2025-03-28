@@ -2,9 +2,45 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="DBCycle.SettingsWindow"
         Title="Settings" Width="490" Height="460"
-        Opacity="0.9"
+        Background="#1B1324"
+        Opacity="0.95"
         WindowStartupLocation="CenterOwner">
-  <Border BorderBrush="Purple" BorderThickness="2" Margin="10" Padding="10">
+
+  <!-- Styles for SettingsWindow -->
+  <Window.Styles>
+    <!-- Buttons -->
+    <Style Selector="Button">
+      <Setter Property="FontFamily" Value="Segoe UI" />
+      <Setter Property="FontSize" Value="14" />
+      <Setter Property="Background" Value="#292038" />
+      <Setter Property="Foreground" Value="#D8D3FF" />
+      <Setter Property="BorderBrush" Value="#F3E5FF" />
+      <Setter Property="BorderThickness" Value="2" />
+    </Style>
+    <Style Selector="Button:hover">
+      <Setter Property="Background" Value="#F3E5FF" />
+      <Setter Property="Foreground" Value="#1B1324" />
+    </Style>
+
+    <!-- TextBoxes -->
+    <Style Selector="TextBox">
+      <Setter Property="FontFamily" Value="Segoe UI" />
+      <Setter Property="FontSize" Value="14" />
+      <Setter Property="Background" Value="#292038" />
+      <Setter Property="Foreground" Value="#D8D3FF" />
+      <Setter Property="BorderBrush" Value="#F3E5FF" />
+      <Setter Property="BorderThickness" Value="1" />
+    </Style>
+
+    <!-- TextBlocks -->
+    <Style Selector="TextBlock">
+      <Setter Property="FontFamily" Value="Segoe UI" />
+      <Setter Property="FontSize" Value="14" />
+      <Setter Property="Foreground" Value="#D8D3FF" />
+    </Style>
+  </Window.Styles>
+
+  <Border BorderBrush="#E6B3FF" BorderThickness="2" Margin="10" Padding="10">
     <Grid>
       <Grid.RowDefinitions>
         <RowDefinition Height="*"/>

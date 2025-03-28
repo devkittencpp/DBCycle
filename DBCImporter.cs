@@ -5,6 +5,8 @@ using System.Linq;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using MySql.Data.MySqlClient;
+using System.Threading;
+
 
 namespace DBCycle
 {
@@ -27,13 +29,19 @@ namespace DBCycle
             _logger = logger;
         }
 
-        public void ImportAll()
+        public void ImportAll(CancellationToken token, ManualResetEventSlim pauseEvent)
         {
+            // Read and deserialize the JSON definition.
             string json = File.ReadAllText(_jsonDefinitionPath);
             DbDefinition dbDefinition = JsonConvert.DeserializeObject<DbDefinition>(json);
 
             foreach (var tableDef in dbDefinition.Tables)
             {
+                // Check for cancellation and wait if paused.
+                token.ThrowIfCancellationRequested();
+                pauseEvent.Wait(token);
+
+                // Build file path for the current table definition.
                 string fileName = $"{tableDef.Name}.{tableDef.Extension}";
                 string filePath = Path.Combine(_dbcFolderPath, fileName);
                 if (!File.Exists(filePath))
@@ -45,7 +53,7 @@ namespace DBCycle
                 // Select the appropriate connection string based on the file extension.
                 string connectionString = tableDef.Extension.ToLower() == "dbc"
                     ? _dbcConnectionString
-                    : _db2ConnectionString;  // Assume you add a new _db2ConnectionString field.
+                    : _db2ConnectionString;
 
                 // Use the table name without the extension.
                 string dbTableName = tableDef.Name;
@@ -54,10 +62,12 @@ namespace DBCycle
                 {
                     conn.Open();
                     CreateTable(conn, tableDef, dbTableName);
-                    ProcessTable(conn, tableDef, filePath, dbTableName);
+                    ProcessTable(conn, tableDef, filePath, dbTableName, token, pauseEvent);
                 }
             }
+            _logger("All tables processed.");
         }
+
 
         private void CreateTable(MySqlConnection conn, TableDefinition tableDef, string dbTableName)
         {
@@ -99,11 +109,12 @@ namespace DBCycle
             _logger($"Table {dbTableName} ensured in MySQL.");
         }
 
-        private void ProcessTable(MySqlConnection conn, TableDefinition tableDef, string filePath, string dbTableName)
+        private void ProcessTable(MySqlConnection conn, TableDefinition tableDef, string filePath, string dbTableName, CancellationToken token, ManualResetEventSlim pauseEvent)
         {
             using (FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read))
             using (BinaryReader br = new BinaryReader(fs))
             {
+                // Determine expected magic based on file extension.
                 string expectedMagic = tableDef.Extension.ToLower() == "dbc" ? "WDBC" : "WDB2";
                 string magic = new string(br.ReadChars(4));
                 if (magic != expectedMagic)
@@ -112,12 +123,13 @@ namespace DBCycle
                     return;
                 }
 
+                // Read header information.
                 int recordCount = br.ReadInt32();
                 int headerFieldCount = br.ReadInt32();
                 int recordSize = br.ReadInt32();
                 int stringBlockSize = br.ReadInt32();
 
-                // For DB2 files, read the additional header fields.
+                // For DB2 files, read additional header fields.
                 if (tableDef.Extension.ToLower() == "db2")
                 {
                     int tableHash = br.ReadInt32();
@@ -129,28 +141,28 @@ namespace DBCycle
                     int copyTableSize = br.ReadInt32();
                 }
 
-                if (_developerModeEnabled)
-                {
-                    _logger($"Field Count Read: ({headerFieldCount}) -> {tableDef.Name}.{tableDef.Extension}");
-                    _logger($"Header: [{tableDef.Name}] recordCount={recordCount}, fieldCount={headerFieldCount}, recordSize={recordSize}");
-                }
+                // Log header details if needed.
+                _logger($"Header: [{tableDef.Name}] recordCount={recordCount}, fieldCount={headerFieldCount}, recordSize={recordSize}");
 
+                // Validate field count and record size.
                 int expectedFieldCount = tableDef.Fields.Sum(f => f.ArraySize.HasValue ? f.ArraySize.Value : 1);
                 if (headerFieldCount != expectedFieldCount)
                     _logger($"Warning: Field count mismatch in {tableDef.Name}. Expected {expectedFieldCount}, got {headerFieldCount}.");
                 if (recordSize != expectedFieldCount * 4)
                     _logger($"Warning: Record size mismatch in {tableDef.Name}. Expected {expectedFieldCount * 4}, got {recordSize}.");
 
+                // Read record data and the string block.
                 byte[] recordsData = br.ReadBytes(recordCount * recordSize);
                 byte[] stringBlock = br.ReadBytes(stringBlockSize);
 
-                // Validate total record size
+                // Additional validation for record size.
                 int expectedByteSize = tableDef.Fields.Sum(f => (f.ArraySize ?? 1) * DbcFieldHelper.GetFieldSize(f.Type));
                 if (recordSize != expectedByteSize)
                 {
                     _logger($"Record size mismatch for {tableDef.Name}. Expected {expectedByteSize} bytes, got {recordSize} bytes.");
                 }
 
+                // Build the list of columns and parameters.
                 List<string> columnList = new List<string>();
                 List<string> paramList = new List<string>();
                 foreach (var field in tableDef.Fields)
@@ -168,14 +180,21 @@ namespace DBCycle
                 string paramNames = string.Join(", ", paramList);
                 string insertSql = $"INSERT INTO {dbTableName} ({columns}) VALUES ({paramNames});";
 
+                // Start a transaction and prepare the insert command.
                 using (MySqlTransaction transaction = conn.BeginTransaction())
                 using (MySqlCommand cmd = new MySqlCommand(insertSql, conn, transaction))
                 {
+                    // Add parameters for each column.
                     foreach (var col in columnList)
                         cmd.Parameters.Add(new MySqlParameter($"@{col}", null));
 
+                    // Process each record.
                     for (int i = 0; i < recordCount; i++)
                     {
+                        // Check for cancellation and wait if paused.
+                        token.ThrowIfCancellationRequested();
+                        pauseEvent.Wait(token);
+
                         int recordOffset = i * recordSize;
                         int currentByteOffset = recordOffset;
 
@@ -185,6 +204,7 @@ namespace DBCycle
                             int fieldSize = DbcFieldHelper.GetFieldSize(field.Type);
                             for (int a = 0; a < arrayCount; a++)
                             {
+                                // Ensure we don't read past the record.
                                 object value = currentByteOffset + fieldSize <= recordOffset + recordSize
                                     ? DbcFieldHelper.ReadFieldValue(field, recordsData, currentByteOffset, stringBlock)
                                     : (field.Type.Equals("string", StringComparison.OrdinalIgnoreCase) ? "" : 0);
@@ -200,5 +220,6 @@ namespace DBCycle
                 }
             }
         }
+
     }
 }

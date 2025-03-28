@@ -32,7 +32,7 @@ namespace DBCycle
                 _config = new Config()
                 {
                     DbcFileDirectory = "",
-                    JsonDefinitionFile = "schema.json",
+                    JsonDefinitionFile = "schema_18414.json",
                     DbcConnectionString = "server=localhost;database=dbc;uid=root;pwd=Kittens123",
                     Db2ConnectionString = "server=localhost;database=db2;uid=root;pwd=Kittens123",
                     ExportPath = ""

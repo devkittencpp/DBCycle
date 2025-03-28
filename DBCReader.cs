@@ -12,14 +12,14 @@ namespace DBCycle
         {
             DataTable table = new DataTable();
 
-            // Define columns based on schema
+            // Define columns based on schema.
             foreach (var field in tableDef.Fields)
             {
                 int arrayCount = field.ArraySize ?? 1;
                 for (int i = 0; i < arrayCount; i++)
                 {
                     string colName = arrayCount > 1 ? $"{field.Name}_{i + 1}" : field.Name;
-                    table.Columns.Add(colName, typeof(string));  // Use string for easy display
+                    table.Columns.Add(colName, typeof(string));
                 }
             }
 
@@ -40,7 +40,7 @@ namespace DBCycle
 
                 if (tableDef.Extension.ToLower() == "db2")
                 {
-                    br.BaseStream.Seek(28, SeekOrigin.Current); // Skip DB2 extra header fields
+                    br.BaseStream.Seek(28, SeekOrigin.Current);
                 }
 
                 byte[] recordsData = br.ReadBytes(recordCount * recordSize);

@@ -24,6 +24,13 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <AvaloniaResource Include="assets/btn_pause.png" />
+    <AvaloniaResource Include="assets/btn_play.png" />
+    <AvaloniaResource Include="assets/btn_stop.png" />
+    <AvaloniaResource Include="assets/copy_img.png" />
+</ItemGroup>
+
   <!-- Copy only the files from the doc folder into the output directory (flattened) -->
   <ItemGroup>
     <None Include="doc\**\*.*">
