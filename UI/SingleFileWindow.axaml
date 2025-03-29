@@ -4,7 +4,17 @@
         Title="Single DBC/DB2 File Viewer" Width="990" Height="660"
         Background="#1B1324">
   <Window.Styles>
-    <!-- Existing DataGrid styles omitted for brevity -->
+    <!-- Global style for DataGrid column headers -->
+    <Style Selector="DataGridColumnHeader">
+      <Setter Property="Background" Value="#292038"/>
+      <Setter Property="Foreground" Value="#F3E5FF"/>
+      <Setter Property="BorderBrush" Value="#E6B3FF"/>
+    </Style>
+    <!-- Global style for DataGrid cells -->
+    <Style Selector="DataGridCell">
+      <Setter Property="Background" Value="Transparent"/>
+      <Setter Property="Foreground" Value="#EAE6FF"/>
+    </Style>
   </Window.Styles>
 
   <DockPanel Margin="10">
@@ -74,6 +84,18 @@
     <DataGrid Name="FileDataGrid" 
               AutoGenerateColumns="False"
               CanUserResizeColumns="True"
-              CanUserSortColumns="True"/>
+              CanUserSortColumns="True">
+      <!-- Apply alternating row colors using CSS-like selectors -->
+      <DataGrid.Styles>
+        <!-- Even rows: match the window background -->
+        <Style Selector="DataGridRow:nth-child(2n)">
+          <Setter Property="Background" Value="#1B1324"/>
+        </Style>
+        <!-- Odd rows: use a slightly contrasting tone -->
+        <Style Selector="DataGridRow:nth-child(2n+1)">
+          <Setter Property="Background" Value="#292038"/>
+        </Style>
+      </DataGrid.Styles>
+    </DataGrid>
   </DockPanel>
 </Window>

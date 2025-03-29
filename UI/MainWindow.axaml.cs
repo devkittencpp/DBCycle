@@ -77,7 +77,8 @@ namespace DBCycle
                 copyLogButton.Opacity = 0;
                 copyLogButton.IsHitTestVisible = false;
             }
-            // The grouped buttons are inside the StackPanel; their visibility will be controlled via pointer events.
+
+            SetOperationButtonsEnabled(false);
 
             EnsureConfigFile();
         }
@@ -110,8 +111,21 @@ namespace DBCycle
             _importCts = new CancellationTokenSource();
             _pauseEvent.Set();
             bool developerModeEnabled = _developerModeCheckBox?.IsChecked == true;
-            await Task.Run(() => ImportData(developerModeEnabled, _importCts.Token, _pauseEvent));
+
+            // Enable the buttons since an import is starting.
+            SetOperationButtonsEnabled(true);
+
+            try
+            {
+                await Task.Run(() => ImportData(developerModeEnabled, _importCts.Token, _pauseEvent));
+            }
+            finally
+            {
+                // Disable the buttons after the import completes or fails.
+                SetOperationButtonsEnabled(false);
+            }
         }
+
 
         private void ImportData(bool developerModeEnabled, CancellationToken token, ManualResetEventSlim pauseEvent)
         {
@@ -276,6 +290,20 @@ namespace DBCycle
         {
             _importCts?.Cancel();
             UpdateLog("Cancel requested.");
+        }
+
+        private void SetOperationButtonsEnabled(bool enabled)
+        {
+            var pauseResumeButton = this.FindControl<Button>("PauseResumeButton");
+            var cancelImportButton = this.FindControl<Button>("CancelImportButton");
+            if (pauseResumeButton != null)
+            {
+                Dispatcher.UIThread.Post(() => pauseResumeButton.IsEnabled = enabled);
+            }
+            if (cancelImportButton != null)
+            {
+                Dispatcher.UIThread.Post(() => cancelImportButton.IsEnabled = enabled);
+            }
         }
 
         private async void CopyLog_Click(object? sender, RoutedEventArgs e)

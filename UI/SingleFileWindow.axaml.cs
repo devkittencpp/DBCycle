@@ -91,19 +91,40 @@ namespace DBCycle
                 };
             }
 
+            // Load valid table names from the schema.
+            var validTableNames = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            if (File.Exists(_config.JsonDefinitionFile))
+            {
+                string schemaJson = File.ReadAllText(_config.JsonDefinitionFile);
+                DbDefinition dbDef = JsonConvert.DeserializeObject<DbDefinition>(schemaJson);
+                if (dbDef?.Tables != null)
+                {
+                    foreach (var table in dbDef.Tables)
+                    {
+                        validTableNames.Add(table.Name);
+                    }
+                }
+            }
+
             _allFiles.Clear();
             if (!string.IsNullOrEmpty(_config.DbcFileDirectory) && Directory.Exists(_config.DbcFileDirectory))
             {
                 var files = Directory.GetFiles(_config.DbcFileDirectory)
-                    .Where(f => f.EndsWith(".dbc", StringComparison.OrdinalIgnoreCase) || 
+                    .Where(f => f.EndsWith(".dbc", StringComparison.OrdinalIgnoreCase) ||
                                 f.EndsWith(".db2", StringComparison.OrdinalIgnoreCase));
                 foreach (var file in files)
                 {
-                    _allFiles.Add(new FileItem
+                    // Get the file name without extension.
+                    string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(file);
+                    // Only add the file if it exists in the schema.
+                    if (validTableNames.Contains(fileNameWithoutExtension))
                     {
-                        DisplayName = Path.GetFileName(file),
-                        FullPath = file
-                    });
+                        _allFiles.Add(new FileItem
+                        {
+                            DisplayName = Path.GetFileName(file),
+                            FullPath = file
+                        });
+                    }
                 }
             }
             // Initialize the filtered collection with all files.
@@ -114,6 +135,7 @@ namespace DBCycle
             }
             FileSelectorComboBox.ItemsSource = _filteredFiles;
         }
+
 
         /// <summary>
         /// Handles filtering the ComboBox items as the user types.
